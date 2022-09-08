@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>ES6 - Prototype introdução</title>
+
+    <script>
+        
+        //contexto de spread(tradução: ESPALHAR)
+
+        //string
+        let tituloArtigo = "Como utilizar o operador rest/ spread?"
+
+        console.log(tituloArtigo)
+        console.log(...tituloArtigo)
+        console.log( [...tituloArtigo] )
+
+        //arrays
+        let listaCursos1 = ["NodeJS e MongoDB", "ES6, TypeScript e Angular 4"]
+        let listaCursos2 = ["Multiplataforma Android/IOS", "Introdução ao GNU/ Linux"]
+        let listaCursosCompleto = [...listaCursos1, "Web Completo", "Android Completo", listaCursos2]
+
+        console.log(listaCursosCompleto)
+
+        //objetos
+        let pessoa = {
+            nome: "João",
+             idade: 600
+        }
+        let dados = {
+            endereco: "Rua pindamonhangaba",
+            ...pessoa
+        }
+
+        console.log(dados)
+
+    </script>
+	</head>
+
+  <body>
+  </body>
+
+</html>

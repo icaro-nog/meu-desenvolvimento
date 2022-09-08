@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Objetos Literais - melhorias</title>
+		<meta charset="utf-8">
+
+        <script>
+            let nome = "Notebook"
+            let preco = 1200
+
+            const produto = {
+                nome,//nome: nome
+                preco,
+                exibirProduto: function() {
+                    console.log(`${this.nome}, ${this.categoria}`)
+                }
+            }
+
+            const pro = produto
+            pro.preco = 5000
+
+            console.log(pro.preco)//O valor de preco, foi alterado em PRO e PRODUTO
+            console.log(produto.preco)
+
+            /*
+            produto.categoria = "Eletrônicos"
+            produto.exibirPreco = function() {
+                console.log(`Preço: ${this.preco}`)
+            }
+            produto.exibirPreco()
+            */
+            /*
+            produto.nome = "Alterar"
+            produto.exibirProduto()
+            console.log(produto.nome)
+            */
+            /*
+            console.log(produto.nome)
+            produto.exibirProduto()
+            */
+        </script>
+
+	</head>
+
+	<body>
+
+
+	</body>
+
+</html>

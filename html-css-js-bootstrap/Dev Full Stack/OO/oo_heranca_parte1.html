@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>OO - Herança Parte 1</title>
+		<meta charset="utf-8">
+
+        <script>
+            //Herança - Reutilização e Manutenção
+
+            class Animal {//Superclasse - Pai
+                constructor(paramCor, paramTamanho, paramPeso) {
+                    this.cor = "Cor: " + paramCor
+                    this.tamanho = "Tamanho: " + paramTamanho
+                    this.peso = "Kg: " + paramPeso
+                }
+
+                correr() {
+                    console.log("Correndo como um... ")
+                    // + 30 linhas de código....
+                }
+
+                dormir() {
+                    console.log("A mimir...")
+                }
+
+                
+            }
+
+            class Cao extends Animal {//Subclasse - Filha de Animal
+                constructor(paramCor, paramTamanho, paramPeso, paramFucinho) {
+                    super(paramCor, paramTamanho, paramPeso)//Para acessar e poder alterar o constructor da Superclasse Animal
+                    this.tamanhoFucinho = paramFucinho
+                    //super.cor = "Caramelo" //Pode ser feito dessa forma também
+                }
+                correr() {
+                    super.correr()
+                    console.log("Cão")
+                }
+                latir() {
+                    console.log("Latinu...")
+                }
+            }
+
+            class Passaro extends Animal {//Subclasse - Filha de Animal
+                constructor(paramCor, paramTamanho, paramPeso) {
+                    super(paramCor, paramTamanho, paramPeso)
+                }
+                voar() {
+                    console.log("Voanu...")
+                }
+                correr() {
+                    super.correr()
+                    console.log("Pássaro")
+                }
+            }
+
+            class Papagaio extends Passaro{//Subclasse - Filha de Passaro que é filha de Animal
+                constructor(paramCor, paramTamanho, paramPeso, paramFalar) {
+                    super(paramCor, paramTamanho, paramPeso)
+                    this.sabeFalar = paramFalar
+                }
+                falar() {
+                    console.log("Silêncio, o Papagaio está falando...")
+                }
+            }
+
+            const cao = new Cao("Branco", "Pequeno", 5, "Pequeno")
+            const passaro = new Passaro()
+            const papagaio = new Papagaio("Azul e amarelo", "Pequeno", 0.3, true)
+
+            console.log(cao.cor, cao.peso)
+            console.log(papagaio.sabeFalar, papagaio.cor)
+            /*
+            cao.latir()
+            cao.correr()//Extensão da Superclasse Animal
+            passaro.voar()
+            passaro.dormir()//Extensão da Superclasse Animal
+            papagaio.falar()
+            papagaio.voar()//Extensão da Superclasse ***Passaro***
+            */
+            /*
+            cao.tamanhoFucinho = "Grande" 
+            console.log(cao.tamanhoFucinho)//Novo atributo no Constructor Cão
+            */
+        </script>
+
+	</head>
+
+	<body>
+
+
+	</body>
+
+</html>

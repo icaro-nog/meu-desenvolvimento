@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript</title>
+
+    <script>
+        
+        let janela
+
+        function abrirPopUp(){
+            janela = window.open("https://www.invia.com.br/", "nova_janela", "width=500, height=800")
+        }
+
+        function fecharPopUp(){
+            janela.close()
+        }
+
+    </script>
+  </head>
+
+  <body>
+
+    <button onclick="abrirPopUp()">Abrir janela</button>
+    <button onclick="fecharPopUp()">Fechar janela</button>
+    <button onclick="window.print()">Imprimir janela</button>
+
+  </body>
+
+
+  <!--
+      
+    Link para consultas de métodos:
+
+    https://www.w3schools.com/jsref/obj_window.asp
+
+  -->
+</html>
+
+

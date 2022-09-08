@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Javascript -->
+    <script type="text/javascript">
+
+      function geraFrase() {
+            let frase = document.getElementById("frase")
+
+            //array com 10 frases
+            const frasesMotivacionais = ["teste1", "teste2", "teste3", "teste4", "teste5", "teste6", "teste7", "teste8", "teste9", "teste10"]
+        
+            //frase.innerHTML para sobrescrever o h2 recebe o array frasesMotivacionais[operação que definirá a aleatoriedade 0, 1, 2..]
+            //Math.floor para transformar os números de Math.random em números inteiros
+            frase.innerHTML = frasesMotivacionais[Math.floor(Math.random() * frasesMotivacionais.length)]
+      }  
+
+    </script>
+
+
+    <title>Frases motivacionais</title>
+
+  </head>
+
+  <body>
+    
+    <div class="container mt-5">
+        <div class="row">
+          <div class="col-md-12">
+
+            <div class="jumbotron">
+              <h1 class="text-success display-5">Frases motivacionais</h1>
+              <hr>
+
+              <h2 class="display-4" id="frase">
+                Frase randômica
+              </h2>
+
+              <hr>
+
+              <button type="button" class="btn btn-success btn-lg" onclick="geraFrase()">Nova frase</button>
+              
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+  </body>
+
+</html>

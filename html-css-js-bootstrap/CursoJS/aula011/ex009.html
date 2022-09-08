@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Origens</title>
+</head>
+<body>
+
+    <h1>Nacionalidade</h1>
+
+    <input type="text" name="txtp1" id="txtp1"> 
+
+    <input type="button" value="Verificador" onclick="verificar()">
+
+
+    <script>
+
+        function verificar(){
+
+            var txtpais = window.document.getElementById("txtp1").value
+
+            if(txtpais == `Brasil`){
+                document.write(`Vive em Brasil`)
+            }else{
+                document.write(`É estrangeiro`)
+            }
+
+
+        }
+        
+    </script>
+    
+</body>
+</html>

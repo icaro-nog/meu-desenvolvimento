@@ -1,0 +1,199 @@
+/* estrutura site */
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  background: #fff url(imagens/bg.png);
+  margin: 15px;
+}
+
+#container{
+  background: #ede9cc url(imagens/bg-container.png) top center repeat-y;
+  margin: 0 auto;
+  min-width: 900px;
+  max-width: 1000px;
+}
+
+#topo{
+  position: relative; /* posição (relative)        -->relacionada ao elemento pai CONTAINER */
+  background: #dbcd87;
+  height: 15.4em;
+  min-height: 250px;
+}
+
+#area-logo{
+  position: absolute; /* A segunda opção de posicionamento é a ABSOLUTE, ou absoluto. Ela faz com que o elemento “saia” da hierarquia estabelecida pelo HTML – na prática, ele é filho da página e não de um elemento qualquer no HTML definido. Assim, é possível posicionarmos esse elemento em qualquer lugar da página, independentemente do que temos lá. Isso pode ser útil em casos que precisamos posicionar um alerta em nossa página, por exemplo, e não queremos “quebrar” o layout. */
+  background: url(imagens/topo-imagem-principal.png) no-repeat;
+  width: 100%;
+  height: 250px;
+  top: 0;
+  left: 0;
+  z-index: 1; /* z-index está relacionado a sobreposição da exibição dos elementos AREA-LOGO(será exibido abaixo 1) e AREA-MENU(será exibido acima 2) */
+}
+
+.logo a{
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 3;
+  background: url(imagens/logo.png) no-repeat;
+  width: 151px;
+  height: 66px;
+  text-indent: -9000px;
+}
+
+#area-menu{
+  position: absolute; /* A segunda opção de posicionamento é a ABSOLUTE, ou absoluto. Ela faz com que o elemento “saia” da hierarquia estabelecida pelo HTML – na prática, ele é filho da página e não de um elemento qualquer no HTML definido. Assim, é possível posicionarmos esse elemento em qualquer lugar da página, independentemente do que temos lá. Isso pode ser útil em casos que precisamos posicionar um alerta em nossa página, por exemplo, e não queremos “quebrar” o layout. */
+  background: url(imagens/topo-imagem-lateral.png) no-repeat;
+  width: 555px;
+  height: 250px;
+  top: 0;
+  right: 0;
+  z-index: 2; /* z-index está relacionado a sobreposição da exibição dos elementos AREA-LOGO(será exibido abaixo 1) e AREA-MENU(será exibido acima 2) */
+}
+
+#conteudo-menu{
+  margin-left: 90px;
+  margin-right: 15px;
+  padding-top: 15px;
+}
+
+#menu-locais{
+  border-bottom: 1px solid #b5ab56;
+  border-top: 1px solid #b5ab56;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 1em;
+  color: #8b8448;
+}
+
+#menu-locais .locais{
+  float: left;
+  line-height: 2.1em;
+}
+
+a{
+  text-decoration: none;
+}
+
+a.reserva{
+  text-transform: uppercase;
+  background: #a29750;
+  color: #fff5b0;
+  padding: 5px 10px;
+  float: right;
+}
+
+/* menu vertical formatação */
+#menu{
+  margin-top: 15px;
+}
+
+ul{
+  list-style: none;
+}
+
+ul#navegacao{
+  float: left;
+}
+
+ul#navegacao a{
+  text-transform: uppercase;
+  font-size: 1.1em;
+  padding: 5px;
+  color: #6e672c;
+  line-height: 30px;
+}
+
+ul#navegacao a:hover{
+  background: #fdf6de;
+}
+
+.depoimento{
+  width: 226px;
+  height: 164px;
+  float: right;
+}
+
+/* área conteudos */
+#area-principal{
+  float: left;
+  width: 50%;
+  background: url(imagens/bg-area-principal.png) top left repeat-x;
+  padding: 15px 0;
+}
+
+#area-lateral{
+  float: right;
+  width: 50%;
+  background: url(imagens/bg-area-lateral.png) top left repeat-x;
+  padding: 20px 0;
+}
+
+.conteudo{
+  margin: 0 auto;
+  width: 90%;
+}
+
+/* rodape */
+#rodape{
+  clear: both;
+  padding: 16px;
+  background: #fff url(imagens/bg-rodape.png) repeat-x top;
+  color: #7d7640;
+}
+
+/* formatações de textos */
+h2{
+  font-size: 1.1em;
+  color: #7d7640;
+  padding: 5px 0px;
+}
+
+p{
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+#area-lateral .conteudo a{
+  font-size: 1.2em;
+  color: #7d7640;
+  padding: 5px 0px
+}
+
+#area-lateral .conteudo li{
+  font-size: 1em;
+}
+
+/* formatações de imagens */
+.apartamento{
+  width: 150px;
+  float: left;
+  margin-right: 8px;
+}
+
+/* formatações área lateral */
+
+#area-lateral .conteudo li{
+  border-bottom: 1px solid #f3efcb;
+  padding: 8px;
+  height: 6em;
+}
+
+#area-lateral .conteudo li a p{
+  font-size: 0.8em;
+}
+
+#area-lateral .conteudo li a h3{
+  font-size: 1.1em;
+  color: #615b2d;
+  background: url(imagens/ornamento.png) no-repeat top right;
+}
+
+#area-lateral .conteudo li:hover{
+  background: #f6f3d6;
+  cursor: pointer;
+}

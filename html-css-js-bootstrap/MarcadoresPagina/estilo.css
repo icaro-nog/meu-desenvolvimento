@@ -1,0 +1,29 @@
+ul a{
+  width: 200px;
+  height: 40px;
+  display: block;
+  color: #000;
+  text-decoration: none;
+  text-indent: 40px;
+  line-height: 40px;
+  background: #f7b600;
+}
+
+a:hover{
+  background-position: right bottom;
+  background: #f99200;
+  color: #FFF;
+}
+
+ /* ***  DEFININDO COMPORTAMENTO DE BOTÃO NA PÁGINA EM QUE O USUÁRIO ESTÁ!!! *** */
+#home #navegacao .home a,
+#sobre #navegacao .sobre a,
+#contato #navegacao .contato a{
+  background-position: right bottom;
+  background: #f99200;
+  color: #FFF;
+} /* ***  DEFININDO COMPORTAMENTO DE BOTÃO NA PÁGINA EM QUE O USUÁRIO ESTÁ!!! *** */
+
+ul{
+  list-style-type: none;
+}

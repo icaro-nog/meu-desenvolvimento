@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Pilar - Encapsulamento parte 2</title>
+		<meta charset="utf-8">
+
+        <script>
+            class ContaBancaria {
+                
+                constructor() {
+                    //O _ indica que NÃO deve-se acessar o dado diretamente, o método de acesso deve ser por meio de getters e setters, como foi feito abaixo
+                    this._numeroConta = 0
+                    this._saldo = 0
+                }
+
+                sacar(valorSaque) {
+                    this._saldo = this._saldo - valorSaque
+                }
+                depositar(valorDeposito) {
+                    this._saldo = this._saldo + valorDeposito
+                }
+
+                get numeroConta() {
+                    return "Número da conta: " + this._numeroConta
+                }
+
+                set numeroConta(conta) {
+                    if(conta > 0){
+                        this._numeroConta = conta + 1 //1 Usado como exemplo
+                    }
+                }
+                
+                get saldo() {
+                    return "Saldo atual: " + "R$" + this._saldo
+                }
+                set saldo(novoSaldo) {
+                    if(novoSaldo > 0) {
+                      this._saldo = novoSaldo + 2 //2 Usado como exemplo
+                    }
+                }
+
+            }
+
+            const conta = new ContaBancaria()
+
+            conta.saldo = 2000
+            conta.depositar(1)
+            conta.sacar(503)
+            //conta.numeroConta = 99
+
+            //console.log(conta.numeroConta)
+            console.log(conta.saldo)
+
+            /*
+            console.log(conta.numeroConta)//Nos casos de get e set, NÃO pode ser colocado () após chamar o método
+            */
+        </script>
+
+	</head>
+
+	<body>
+
+
+	</body>
+
+</html>

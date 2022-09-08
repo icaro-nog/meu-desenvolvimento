@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript</title>
+
+    <script>
+
+      var num1 = prompt("Digite o num1: ")
+      var operacao = prompt("Digite a operação desejada em forma textual: ")
+      var num2 = prompt("Digite o num2: ")
+
+
+      function somaSubtracao(num1, num2, operacao){
+
+        num1 = parseFloat(num1)
+        num2 = parseFloat(num2)
+
+        var resultado = 0
+
+        if (operacao == "soma"){
+          resultado = num1 + num2
+        }
+        if(operacao == "subtração"){
+          resultado = num1 - num2
+        }
+
+        return resultado
+      }
+
+      document.write("O resultado é: " + somaSubtracao(num1, num2, operacao))
+
+
+    </script>
+  </head>
+
+  <body>
+  </body>
+
+</html>

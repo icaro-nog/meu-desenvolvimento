@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Funções Factory</title>
+		<meta charset="utf-8">
+
+        <script>
+            //Com essa função, podemos criar diveros produtos com a mesma "base"
+            const ProdutoFactory = function(nome, preco) {
+                return {
+                    nome,
+                    preco,
+                    recuperarAvaliacoes() {
+                        console.log(`Avaliações para ${this.nome}`)
+                    }
+                }
+            }
+
+            const produto1 = new ProdutoFactory("Teclado", 20)
+            produto1.recuperarAvaliacoes()
+
+            const produto2 = new ProdutoFactory("Mouse", 60)
+            produto2.recuperarAvaliacoes()
+            
+        </script>
+
+	</head>
+
+	<body>
+
+
+	</body>
+
+</html>

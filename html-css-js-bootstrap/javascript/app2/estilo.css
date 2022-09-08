@@ -1,0 +1,49 @@
+html{
+    cursor: url(imagens/mata_mosquito.png) 30 30;
+}
+
+body{
+    background-image: url(imagens/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.mosquito0{
+    height: 30px;
+    width: 30px;
+}
+.mosquito1{
+    height: 50px;
+    width: 50px;
+}
+.mosquito2{
+    height: 80px;
+    width: 80px;
+}
+
+.ladoA{
+    transform: scaleX(1)
+}
+/* Inverte o lado do mosquito.png -> flip */
+.ladoB{
+    transform: scaleX(-1)
+}
+
+.painel{
+    position: absolute;
+    width: 190px;
+    padding: 10px;
+    left: 0px;
+    bottom: 0px;
+    border-top: solid 1px #fff;
+    background-color: #fff;
+    opacity: 0,7;
+}
+.vidas{
+    float: left;
+}
+.cronometro{
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+}

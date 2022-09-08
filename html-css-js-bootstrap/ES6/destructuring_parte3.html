@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title></title>
+
+    <script>
+        
+        //destructuring pt3
+
+        /*
+        //array
+        let arr = [10, 20, 30, 40]
+
+        //pulando o índice 2 e definido o default no parametro d = 100
+        function teste([a, b, , c, d = 100]) {
+            console.log(a, b, c, d)
+        }
+
+        //function teste recebe os valores do array arr
+        teste(arr)
+        */
+
+        //objeto
+        let obj = {
+            a: 10,
+            b: 20,
+            c: 30,
+            d: 40
+        }
+
+        function teste({ a: x, b, z = "jesus" }) {
+            console.log(x, b, z)
+        }
+
+        //function teste recebe os valores do objeto literal obj
+        teste(obj)
+
+        
+
+
+        /*!!!ATENÇÃO!!!*/
+        //em arrays utilizamos o token -> [] 
+        //em objetos utilizamos o token -> {}
+
+    </script>
+	</head>
+
+  <body>
+  </body>
+
+</html>

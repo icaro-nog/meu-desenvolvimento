@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript - fixação amarelo</title>
+
+    <style>
+      .estilo1{
+        background: #ffff00;
+        color: #000000;
+      }
+      .estilo2{
+        background: #ffffff;
+        color: #000000;
+      }
+      .estilo3{
+        background: #ff0000;
+        color: #ffffff;
+      }
+      .estilo4{
+        background: #008000;
+        color: #ffffff;
+      }
+    </style>
+
+    <script>
+      function acao1(){
+        document.getElementById('input').className = 'estilo1'
+      }
+      function acao2(){
+        document.getElementById('input').className = 'estilo2'
+      }
+
+
+    function quantidadeCaracteres(){
+      if (input.length < 3){
+           document.getElementById('input').className = 'estilo3'
+         }
+      else (input.length >= 3){
+           document.getElementById('input').className = 'estilo4'
+
+         }
+
+    }
+
+
+    </script>
+
+  </head>
+
+  <body>
+
+    <input type="text" placeholder="Digite um caractere aqui" onmouseover="acao1()" onmouseout="acao2()" id="input" name="input"></input>
+
+  </body>
+
+</html>

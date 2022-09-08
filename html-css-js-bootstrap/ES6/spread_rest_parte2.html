@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>ES6 - Prototype introdução</title>
+
+    <script>
+        
+        //contexto rest(Tradução: JUNTAR)
+
+        function soma(...param) {
+            let resultado = 0
+
+            //console.log(param)//junção dos parâmetros de soma()
+
+            param.forEach(v => resultado += v)//v recebe todos os parâmetros de param e no final soma os parâmetros de soma()
+
+            return resultado
+        }
+        /*
+        em rest, o ...param de soma recebe todos os dados inseridos em soma e JUNTA eles para serem somados no percorrimento de forEach v na arrow function
+        */
+        //console.log(soma(3, 8, 5, 80, -50, 60))
+
+        function multiplicacao(m, ...p) {
+            console.log(m)//exibição do primeiro parametro de multiplicação -> (5)
+            console.log(p)//exibição dos parametros de que serão multiplicados -> (7, 12, 3, 49)
+
+            let resultado = 0
+
+            p.forEach(v => resultado += m * v)//v recebe todos os parâmetros de ...p e no final multiplica-os dessa forma -> 5 * 7, 12, 3, 49
+
+            return resultado
+        }
+
+        console.log(multiplicacao(5,     7, 12, 3, 49, -5))//m = 5 e ...p AJUNTOU todos os parâmetros posteriores 7, 12, 3, 49 sendo ...p = 7, 12, 3, 49, -5
+    </script>
+	</head>
+
+  <body>
+  </body>
+
+</html>

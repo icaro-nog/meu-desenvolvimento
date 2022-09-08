@@ -1,0 +1,127 @@
+/* Removendo a formatação padrão do navegador */
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-size: 1em;
+  font-family: "Trebuchet Ms", Helvetica, sans-serif;
+  background-color: #E3E1E1;
+}
+
+/* **** LAYOUT **** */
+
+#div-cabecalho{
+	background-color: #f7b600;
+	padding: 15px;
+	text-align: center;
+}
+
+#tec-blog, #menu{
+	padding: 10px;
+}
+
+#area-principal{
+  width: 920px;
+  margin: 0px auto;
+  padding: 15px;
+}
+
+.area-postagens, #area-lateral{
+  background-color: #FFF;
+}
+
+.area-postagens{
+  width: 660px;
+  float: left;
+}
+
+.postagem{
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+#area-lateral{
+  width: 240px;
+  float: right;
+  background-color: #FFF;
+  margin-bottom: 20px;
+  padding: 4px;
+}
+
+#rodape{
+  background-color: #CCC;
+  padding: 15px;
+  clear: both;
+  text-align: center;
+  font-weight: bold;
+}
+
+h2{
+  color: #f7b600;
+}
+
+#data{
+  font-size: 0.8em;
+  border-bottom: 1px solid #f4f4f4;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  /* para tornar o comportamento do <SPAN> de linha(inline) para bloco(block) */
+  display: block;
+}
+
+/* **** FORMATAÇÕES DO MENU **** */
+a{
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 7px 12px;
+}
+
+a:link, a:visited{
+  color: #f7b600;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+     /* #div-cabecalho a:link, #div-cabecalho a:visited e #div-cabecalho a:hover -----> Servem para aplicar a formatação apenas na DIV-CABECALHO!!! Excluindo o link: LEIA MAIS, contido no parágrafo da pág 1 */
+#div-cabecalho a:link, #div-cabecalho a:visited{
+  color: #FFF;
+  text-decoration: none;
+}
+
+#div-cabecalho a:hover{
+  color: #f7b600;
+  background-color: #FFF;
+  text-decoration: none;
+}
+#leia-mais-lateral{
+  display: block;
+}
+
+.meio{
+  background-color: #E3E1E1;
+}
+
+
+/* **** FORMATAÇÕES EM GERAL **** */
+.branco{
+  color: white;
+}
+
+h1{
+  color: #4e4e4e;
+  font-size: 2.5em;
+}
+
+h3{
+  padding: 5px;
+  background-color: #E3E1E1;
+  color: #4e4e4e;
+  margin: 1px;
+  font-size: 21px;
+}

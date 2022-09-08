@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript - Operadores aritméticos</title>
+
+    <script>
+
+      var num1 = prompt ("Digite o valor de num1: ")
+      var num2 = prompt ("Digite o valor de num2: ")
+
+      /* Para fazer com quem a variável inserida pelo usuário vá de String a Number */
+      //__________________________
+      num1 = parseInt(num1)
+      num2 = parseInt(num2)
+
+      // SOMA----------------------
+      document.write ("A soma entre " + num1 + " e " + num2 + " é: " + (num1 + num2) + "<br />")
+
+      // SUBTRAÇÃO-------------------
+      document.write ("A subtração entre " + num1 + " e " + num2 + " é: " + (num1 - num2) + "<br />")
+
+      // MULTIPLICAÇÃO------------------
+      document.write ("A multiplicação entre " + num1 + " e " + num2 + " é: " + (num1 * num2) + "<br />")
+
+      // DIVISÃO------------------
+      document.write ("A divisão entre " + num1 + " e " + num2 + " é: " + (num1 / num2) + "<br />")
+
+      // MÓDULO------------------
+      // OBSERVAÇÃO------------------
+      /* o módulo retorna o valor que sobra da divisão em valores inteiros - 9/2= 4,5 (o módulo retornará 9/2= 1 pois, entende que 9 divide em 4 vezes por 2 SOBRA 1 valor inteiro */
+      document.write ("O módulo entre " + num1 + " e " + num2 + " é: " + (num1 % num2) + "<br />")
+
+      // INCREMENTO------------------
+      /* o incremento aparecerá apenas na proxima linha de código SE FOR após a variável - num1++ */
+      document.write ("O incremento de " + num1 + " é: " + (++num1) + "<br />")
+
+      // DECREMENTO------------------
+      /* o decremento aparecerá apenas na proxima linha de código SE FOR após a variável - num1-- */
+      document.write ("O decremento de " + num1 + " é: " + (num1--) + "<br />")
+      document.write (num1 + "<br />")
+
+
+    </script>
+  </head>
+
+  <body>
+  </body>
+
+</html>

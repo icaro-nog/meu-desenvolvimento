@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javinha</title>
+    <style>
+        body{
+            font: normal 20pt arial;
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+
+        var nome = window.prompt(`Qual seu nome?`)
+
+
+        document.write(`Olá, <strong>${nome}</strong>! Seu nome tem ${nome.length} letras. <br>`)
+    
+        document.write(`Seu nome em letras maiúsculas é: ${nome.toUpperCase()} <br>`)
+
+        document.write(`Seu nome em letras minúsculas é: ${nome.toLowerCase()}`)
+
+
+        //n.replace(`troca1`, `troca2`) -> indica a troca de um `` por outro ``
+
+        /*
+        n1.toLocaleString("pt-BR", {style: "currency", currency: 'BRL'})
+        
+        n.toLocaleString() -> String localizada por parte do mundo
+        -> (português-BRASIL, {style: "moeda"*tipo?*, moeda *qual?*: 'BRAZILIAN REAL'})
+        */
+
+    </script>
+</body>
+</html>

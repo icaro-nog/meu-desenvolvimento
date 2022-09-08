@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Tratamento de erros com Try Catch</title>
+		<meta charset="utf-8">
+
+        <script>
+            function contarQuantidadeLetras(paramProduto) {
+                try{
+                    console.log(paramProduto.nome.toString().length)
+                }catch(erro){
+                    tratarErro(erro)
+                    //console.log("Desculpe, houve erro ao processar... cód: ???")
+                }
+            }
+
+            function tratarErro(erro) {
+                throw new Error("Teste. código de erro: 777")//Mensagem que será lançada, caso haja erro na execução
+            }
+
+            const produto1 = {
+                nom: "Cabo",
+                preco: 202
+            }
+
+            contarQuantidadeLetras(produto1)
+            
+        </script>
+
+	</head>
+
+	<body>
+
+
+	</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Minha primeira página</title>
+
+    <style>
+    body{
+        background: rgb(0, 255, 157);
+    }
+        
+    </style>
+</head>
+
+<body>
+    
+    <h1>Olá, mundo!</h1>
+
+    <script>
+
+        var n1 = Number(window.prompt("Digite um número: "))
+        var n2 = Number(window.prompt("Digite um número: "))
+
+        var s = n1 + n2
+
+        window.alert(`A soma entre ${n1} mais ${n2} é a ${s}`)//concatenação
+
+        //(number + number)para adição
+        //(string + string)para concatenação
+
+        /*Number.parseInt(n) -> em conversões para números inteiros, sem vírgulas
+        Number.parseFloat(n) -> em conversões para números reais, com vírgulas
+        Number(n) -> em conversões para números reais e/ou inteiros, o próprio script sabe identificar*/
+
+        /*_______________________________*/
+
+        //String(n) ou n.toString()-> conversão de Number para String
+
+        //"estou aprendendo" + s -> usa concatenação
+        //`Eu estou aprendendo ${s}` -> usa template string --> o ` é CRASE
+        /*
+        s.length -> quantos caracteres a string tem
+        s.toUpperCase() -> tudo para `MAISÚSCULAS`
+        s.toLowerCase() -> tudo para `minúsculas`
+        */
+    </script>
+
+</body>
+
+
+</html>

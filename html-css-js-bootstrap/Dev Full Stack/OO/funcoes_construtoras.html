@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Funções Construtoras</title>
+		<meta charset="utf-8">
+
+        <script>
+            //Criando objetos com Funções Construtoras
+
+            /*
+            class Hotel {
+
+            }
+            */
+            const Hotel = function() {
+                this.nome = "Hotel do Ícaro"
+                this.quantidadeSuites = 30
+                this.suitesOcupadas = 25
+
+                this.reservar = function() {
+                    this.suitesOcupadas++
+                    console.log("Suítes ocupadas: " + this.suitesOcupadas)
+                }
+            }
+
+            const hotel = new Hotel()
+            console.log(hotel.reservar())
+            
+        </script>
+
+	</head>
+
+	<body>
+
+
+	</body>
+
+</html>

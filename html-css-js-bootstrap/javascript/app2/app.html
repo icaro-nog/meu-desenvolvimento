@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Mata-Mosquito Game</title>
+
+
+    <script src="jogo.js"></script>
+    <link rel="stylesheet" href="estilo.css">
+
+  </head>
+
+  <!--onresize(quando for ajustado o tamanho da página) a function é executada no log-->
+  <body onresize="ajustaTamanhoPalcoJogo()">
+
+    <div class="painel">
+      <div class="vidas">
+        <img id="v1" src="imagens/coracao_cheio.png">
+        <img id="v2" src="imagens/coracao_cheio.png">
+        <img id="v3" src="imagens/coracao_cheio.png">
+      </div>
+
+      <div class="cronometro">
+        Tempos restante: <span id="cronometro"></span>
+      </div>
+    </div>
+
+    <script>
+      //inserindo a function aqui, ele gera primeiro a variável tempo, depois começa a contar 
+      document.getElementById("cronometro").innerHTML = tempo  
+
+      
+      let criaMosquito = setInterval(function(){
+        posicaoRandomica()
+      }, criaMosquitoTempo)
+    </script>
+
+  </body>
+
+  
+</html>
+
+

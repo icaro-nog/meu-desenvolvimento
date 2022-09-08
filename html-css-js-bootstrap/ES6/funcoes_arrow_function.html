@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>ES6 - Arrow function</title>
+
+    <script>
+        /*
+        let quadrado = function(x = 5) {
+          return x * x
+        }
+
+        document.write(quadrado())
+        */
+
+        /*
+        let quadrado = (x) => {
+          return x * x
+        }
+
+        document.write(quadrado(25))
+        */
+
+        /*
+        //quando a function tiver apenas UM parâmetro, podemos deixar de escrever os () e {} e utilizar o arrow =>
+        let quadrado = x => x * x //return implícito -> não mostrado na function
+      
+        document.write(quadrado(8))
+        */
+
+        /*
+        let parOuImpar = function(numero) {
+          if(numero % 2 === 0){
+            return "Par"
+          }else{
+            return "Ímpar"
+          }
+        }
+
+        document.write(parOuImpar(8))
+        */
+
+        /*
+        let parOuImpar = numero => {
+          if(numero % 2 === 0){
+            return "Par"
+          }else{
+            return "Ímpar"
+          }
+        }
+
+        document.write(parOuImpar(5))
+        */
+
+        let parOuImpar = numero => numero % 2 === 0 ? "Par" : "Ímpar"//return implícito 
+
+        document.write(parOuImpar(2))
+    </script>
+	</head>
+
+  <body>
+  </body>
+
+</html>

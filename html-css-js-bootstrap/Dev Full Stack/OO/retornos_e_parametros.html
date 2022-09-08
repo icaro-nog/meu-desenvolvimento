@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+	<head>
+		<title>Métodos - retornos e parâmetros</title>
+
+    <script>
+
+        class Usuario {
+
+            constructor(){
+                this.email = ""
+                this.senha = ""
+                this.subtotalCompra = 0
+            }
+
+            logar() {
+                let emailBD = "tchoco@gmail.com"
+                let senhaBD = "1234"
+
+                if(this.senha == senhaBD) {
+                    return "Senha válida"
+                }else{
+                    return "Senha inválida"
+                }
+            }
+
+            calcularDesconto(cupom) {
+                let desconto = 0
+                if(cupom == "DESC20"){
+                    desconto = 20
+                }else if(cupom == "FESTA10") {
+                    desconto = 10
+                }
+
+                let total = this.subtotalCompra - desconto
+                return total
+
+            }
+        }
+
+        const usuario = new Usuario()
+        usuario.subtotalCompra = 279
+        console.log(usuario.calcularDesconto("FESTA10"))
+
+
+        /*
+        usuario.email = "tchoco@gmail.com"
+        usuario.senha = "123456"
+
+        console.log(usuario.logar())
+        */
+
+    </script>
+
+	</head>
+
+  <body>
+
+  </body>
+
+

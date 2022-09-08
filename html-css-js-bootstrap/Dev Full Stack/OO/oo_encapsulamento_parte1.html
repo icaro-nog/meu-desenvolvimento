@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Pilar - Encapsulamento parte 1</title>
+		<meta charset="utf-8">
+
+        <script>
+            class Carro {
+                constructor() {
+                    this.marca = "volkswagen"
+                    this.modelo = "fox"
+                    this.cor = "rosinha"
+                }
+
+                frear() {
+                    /*
+                    . *detalhamento do método*
+                    . *detalhamento do método*
+                    . *detalhamento do método*
+                    . ...                    
+                    */
+                   console.log("O carro freou...")
+                }
+            }
+
+            const carro = new Carro()
+            carro.frear()
+
+            //Com o método de encapsulamento, conseguimos manter o objeto pronto para ser alterado posteriormente sem ter a necessidade de alterar o código FORA da CLASSE posteriormente
+        </script>
+
+	</head>
+
+	<body>
+
+
+	</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Funções Construtoras - Encapsulamento</title>
+		<meta charset="utf-8">
+
+        <script>
+            //Funções Construtoras - Encapsulamento
+
+            const Hotel = function() {
+                this.nome = "Hotel do Ícaro"
+                this.quantidadeSuites = 30
+                let suitesOcupadas = 25 //Assim consegue-se isolar o atributo let no ESCOPO  da função*** para ele não poder ser alterado fora do escopo
+
+                this.reservar = function() {
+                    if(suitesOcupadas < this.quantidadeSuites) {
+                        suitesOcupadas++
+                        console.log("Suítes ocupadas: " + suitesOcupadas)
+                    }else{
+                        console.log("Suítes lotadas!!!")
+                    }
+                }
+            }
+
+            const hotel = new Hotel()
+            console.log(hotel.reservar())
+            console.log(hotel.reservar())
+            console.log(hotel.reservar())
+            //hotel.suitesOcupadas = 20 
+            /*
+            Dessa forma, poderíamos alterar a quantidade de suítesOcupadas se continuasse sendo um atributo comum
+            */
+            console.log(hotel.reservar())
+            console.log(hotel.reservar())
+            console.log(hotel.reservar())
+            console.log(hotel.reservar())
+            console.log(hotel.reservar())
+            
+        </script>
+
+	</head>
+
+	<body>
+
+
+	</body>
+
+</html>

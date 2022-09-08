@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Objetos Constantes</title>
+		<meta charset="utf-8">
+
+        <script>
+            //Produto -> 0000(exemplo de espaço na memória) -> {nome: "Notebook"}
+            const produto = {
+                nome: "Notebook",
+                preco: 500
+            }
+
+            Object.freeze(produto)//Com esse método, conseguimos "congelar" o objeto para ele não poder ser alterado posteriormente
+            produto.nome = "Celular"
+            produto.preco = 120
+
+            console.log(produto)
+        </script>
+
+	</head>
+
+	<body>
+
+
+	</body>
+
+</html>

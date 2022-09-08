@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>OO - Pilar da Encapsulamento</title>
+
+    <script>
+        
+        class Tv {
+          constructor() {
+            this.relacaoCanais = [2, 4, 5, 7, 10]
+            this._canalAtivo = 5
+            this._volume = 5
+          }
+
+          //get apenas para retornar o atributo
+          //set para retornar e poder sobrescrever o atributo
+          //getters setters
+          get canalAtivo() {
+            return this._canalAtivo
+          }
+
+          set canalAtivo(canal) {
+            /*
+            Se "tv._canalAtivo" não estiver no Array relacaoCanais, indique -1 e sobrescreva com o valor inserido em "tv._canalAtivo"
+            */
+            if(this._relacaoCanais.indexOf(canal) !== -1){
+              this._canalAtivo = canal
+            }
+
+          }
+        }
+
+        //variavel tv recebe o objeto Tv{}
+        let tv = new Tv()
+
+        tv._canalAtivo = 50
+        console.log(tv.canalAtivo)
+
+    </script>
+	</head>
+
+  <body>
+  </body>
+
+</html>

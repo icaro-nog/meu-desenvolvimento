@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>OO - Pilar da Herança</title>
+
+    <script>
+        //classe comum a todos os objetos -> animais
+        class Animal{
+            constructor(){
+                this.cor = ""
+                this.tamanho = null
+                this.peso = null
+            }
+
+            dormir(){
+                console.log("Dormiu")
+            }
+        }
+
+        //extends para extender a classe Animal ao objeto Cachorro
+        class Cachorro extends Animal {
+            constructor(){
+                super()
+                this.orelhas = "Grandes e caídas"
+            }
+
+            correr(){
+                console.log("Correuuuuuu")
+            }
+
+            rosnar(){
+                console.log("Rosnou")
+            }
+        }
+
+        //extends para extender a classe Animal ao objeto Passaro
+        class Passaro extends Animal {
+            constructor(){
+                super()
+                this.bico = "Curto"
+            }
+
+            voar(){
+                console.log("Voou")
+            }
+        }
+
+        //extends para extender a classe Passaro ao objeto Papagaio -> efeito cascata
+        class Papagaio extends Passaro {
+            constructor(){
+                super()
+                this.sabeFalar = true
+            }
+
+            falar(){
+                console.log("Aiii meu papagainho")
+            }
+        }
+        
+        let cachorro = new Cachorro()
+        let passaro = new Passaro()
+        let papagaio = new Papagaio()
+
+        cachorro.dormir()
+        passaro.dormir()
+        papagaio.falar()
+        papagaio.dormir()
+        papagaio.voar()
+
+    </script>
+	</head>
+
+  <body>
+  </body>
+
+</html>

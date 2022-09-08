@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>ES6 - Prototype introdução</title>
+
+    <script>
+        
+        //destructuring
+
+        let frutas = ["Abacaxi", "Uva", "Pêra", "Melância"]
+
+        //let [a, b, , c] = frutas//pular um índice do array
+        let [a, b = "Abacate", c, d, e = "aiii meu t"] = frutas//inserindo opções default na variável destructuring
+
+        //console.log(a, b, c, d, e)
+
+        let coisas = [["Abacaxi", "Uva", "Pêra", "Melância"], ["Claudius", "Carimbo Miguel"]]
+        let [[, , f3], [, n2]] = coisas 
+        
+        console.log(f3, n2)
+
+        /*!!!ATENÇÃO!!!*/
+        //em arrays utilizamos o token -> [] 
+        //em objetos utilizamos o token -> {}
+
+    </script>
+	</head>
+
+  <body>
+  </body>
+
+</html>

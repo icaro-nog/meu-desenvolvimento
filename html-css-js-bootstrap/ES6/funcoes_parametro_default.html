@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>ES6 - parâmetro default</title>
+
+    <script>
+        //parametros default podem ser definidos diretamente na função e também podem ser alterados após isso
+
+        function contarUmaHistoria(personagem = "Bug", atividade = "programar", nome_dono = "Microsoft"){
+            document.write(`Era uma vez um cachorro chamado ${personagem}, ele adorava ${atividade}, seu dono era o ${nome_dono}`)
+        }
+
+        contarUmaHistoria(undefined, "Bugar", "Paulo Bracks")
+
+    </script>
+	</head>
+
+  <body>
+  </body>
+
+</html>

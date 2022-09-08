@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript</title>
+
+    <script>
+        // try - tente -> Tente exibir..
+        // catch - pegar -> Pega o erro(e ou erro) e exibir a string do mesmo
+        // finally - finalmente -> Finalizar o try ou o catch, sempre deve passar pela etapa de finally
+        // throw - lançar -> Exibe o erro e juntamente PODE exibir uma mensagem para o usuário
+
+
+
+      //Netflix
+      let video = []
+
+      video[1] = []
+      video[1]["nome"] = "Fullmetal Alchemist"
+      video[1]["categoria"] = "Anime"
+
+      function getVideo(video){
+        try{
+            //Lógica
+            //http
+            console.log(video[0]["nome"])
+        } catch(erro){
+            tratarErro(erro)//exibe o erro em String
+            console.log("Agora sim podemos tratar esse erro")
+            throw new Error("Houve um erro mas não se preocupe, estamos trabalhando para resolvê-lo!!!")
+        } finally{
+            console.log("Sempre passa por aqui (try/ catch)")
+        }
+
+        console.log("A aplicação não morreu!")
+      }
+
+      
+      function tratarErro(e){
+          // Lógica para registrar o erro no Servidor
+          console.log(e)
+      }
+
+      getVideo(video)
+
+    </script>
+  </head>
+
+  <body>
+  </body>
+
+</html>

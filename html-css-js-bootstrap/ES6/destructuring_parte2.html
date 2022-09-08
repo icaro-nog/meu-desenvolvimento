@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>ES6 - Prototype introdução</title>
+
+    <script>
+        
+        //destructuring pt2
+
+        let produto = {
+            descricao: "celular",
+            preco: 1800,
+            detalhes: {
+                fabricante: "Eipou",
+                modelo: "Iphone Xis"
+            }
+        }
+
+        /*
+        let {descricao, preco} = produto
+        console.log(descricao, preco)
+        */
+
+        /*
+        let {descricao: d, preco: p} = produto
+        console.log(d, p)
+        */
+
+        /*
+        let {descricao: d, preco: p, desconto} = produto//desconto undefined
+        console.log(d, p, desconto)
+        */  
+
+        /*
+        let {descricao: d, preco: p = 99999999, desconto = 5} = produto
+        console.log(d, p, desconto)
+        */
+
+        let {detalhes: {fabricante: f, modelo: m = "Não informado"}} = produto
+        console.log(f, m)
+
+
+
+
+        /*!!!ATENÇÃO!!!*/
+        //em arrays utilizamos o token -> [] 
+        //em objetos utilizamos o token -> {}
+
+    </script>
+	</head>
+
+  <body>
+  </body>
+
+</html>

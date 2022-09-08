@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Protótipos - Descendentes de Object</title>
+		<meta charset="utf-8">
+
+        <script>
+            //Descendentes de Object
+
+            const obj = {
+
+            }
+            
+            //console.log(obj.toString())
+            //console.log(obj.__proto__)
+            //console.log(obj.__proto__ == Object.prototype)
+
+            class Carro {
+                constructor(){
+                    this.placa = "XXX-123"
+                }
+            }
+
+            class Bmw extends Carro {
+                constructor() {
+                    super()
+                    this.nome = "TESTE-1"
+                }
+            }
+
+            /*
+            const objBmw = new Bmw()
+            console.log(objBmw.placa)
+            console.log(objBmw.nome)
+            */
+
+            //Prototipe Chain - Hierarquia de objetos, encadeamento
+            /*
+            Quando for definido um atributo, será mostrado o primeiro que for definido
+            */
+            const veiculo = {
+                combustivel: "diesel",
+                motor: "50 cavalos"
+            }
+
+            const carro = {
+                placa: "XXX-456",
+                __proto__: veiculo,
+                acelerar: function() {
+                    console.log("Acelerando...")
+                }
+            }
+
+            const bmw = {
+                nome: "TESTE-2",
+                combustivel: "total-flex",
+
+                __proto__: carro
+            }
+
+            //console.log(bmw.placa)
+            console.log(bmw.motor)//Atributo vindo de const veiculo
+            console.log(carro.motor, carro.combustivel)
+        </script>
+
+	</head>
+
+	<body>
+
+
+	</body>
+
+</html>

@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>Javascript</title>
+    <script>
+        let listaFuncionarios = ["Viviane", "Rosângela", "Miguel", "Lucas", "Fernanda"]
+
+        //técnica de Wrapper, deixar o código menos verboso e mais legível -> transformar a function em uma variável
+        let f = function(valor, indice){
+          console.log(valor, indice)
+        }
+
+        listaFuncionarios.forEach(f)//atua apenas em índices NUMÉRICOS positivos, se for string ou outro, irá dar erro!
+
+      /*
+          console.log(listaFuncionarios)
+
+          listaFuncionarios.forEach(function(valor, indice, array){
+            //lógica 
+            //indice irá Percorrer o índice de cada array, valor da mesma forma
+            console.log("índice: " + indice + "| valor: " + valor)
+            
+            if(valor == "Lucas"){
+              array[indice] = "Um novo valor"
+            }//substituição do valor "Lucas", por "Um novo valor"
+          })
+
+          console.log(listaFuncionarios)//Percorre o array COMPLETO
+          */
+    </script>
+	</head>
+
+  <body>
+
+
+  </body>
+
+</html>

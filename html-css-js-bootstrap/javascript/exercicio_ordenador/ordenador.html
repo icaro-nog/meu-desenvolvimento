@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<title>Ordenador</title>
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+
+    <script>
+        var objetos = ["Cadeira", "Impressora", "Garfo"]
+        
+
+        function adicionar(){
+            var objeto_adicionado = document.getElementById("txtobjeto").value//recupera o valor do campo de texto
+
+            //Se objeto_adicionado for diferente de vazio, estiver preenchido
+            if(objeto_adicionado != ""){
+
+                //verifica se o valor já não foi inserido anteriormente
+                //se sim, informa que valor já existe, se não insere novo valor
+                if(objetos.indexOf(objeto_adicionado) !== -1){
+                    window.alert("Objeto já adicionado!")
+                }else{
+                objetos.push(objeto_adicionado)
+                console.log(objetos)
+
+                //Limpa o campo de texto do Objeto    
+                document.getElementById("txtobjeto").value = ""
+                }
+                
+            }else{
+                window.alert("Informe um objeto válido!")
+            }
+        }
+
+        function ordenar(){
+            objetos.sort()//ordenar os objetos do array em ordem alfabética
+            console.log(objetos)//exibir os objetos no console
+        }
+    </script>
+	</head>
+
+  <body>
+
+    <header>
+        <h1>Ordenador</h1>
+    </header>
+
+    <section>
+
+        <div>
+            <p>
+                Digite um objeto:
+                <input type="text" name="txtobjeto" id="txtobjeto">
+                <input type="button" name="adcobjeto" id="adcobjeto" value="Adicionar" onclick="adicionar()">
+                <input type="button" name="ordobjeto" id="ordobjeto" value="Ordenar" onclick="ordenar()">
+            </p>
+        </div> 
+
+    </section>
+
+  </body>
+
+</html>

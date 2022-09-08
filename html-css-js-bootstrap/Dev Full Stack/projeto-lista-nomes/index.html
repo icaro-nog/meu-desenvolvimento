@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="script.js"></script>
+
+    <title>Projeto lista nomes</title>
+  </head>
+
+  <body>
+    
+    <div class="container mt-5">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Usuários</h2>
+
+              <div class="form-inline">
+                <input class="form-control mr-2" type="text" placeholder="Pesquise um nome" id="campoPesquisa">
+
+                <input  class="btn btn-primary mr-2" 
+                type="submit" value="Pesquisar" onclick="pesquisarNome()">
+                
+                <input  class="btn btn-warning" 
+                type="submit" value="carregar" onclick="carregarNomes()">
+              </div>
+
+              <hr>
+
+              <ul class="list-group">
+                <li class="list-group-item" id="lista">Nenhum Tiquinho...</li>
+              </ul>
+
+          </div>
+        </div>
+      </div>
+
+  </body>
+
+</html>

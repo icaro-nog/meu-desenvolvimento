@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>ES6 - Prototype introdução</title>
+
+    <script>
+        
+        Object.prototype.attr50 = "uva" //CUIDADO!! esse attr5 será inserido em todos os outros objetos por ser GLOBAL
+
+        let animal = {attr1: "a"}
+        let vertebrado = {__proto__: animal, attr2: "b"}
+        let ave = {__proto__: vertebrado, attr3: "c", attr2: "x"}//attr2: "x" sobreescreve o attr2 de vertebrado!
+        
+        console.log(ave.attr3, ave.attr2, ave.attr1, ave.attr50)
+        
+        /*
+        por __proto__ ter sido inserido nas variáveis anteriores, a let ave tem ACESSO a todas elas
+        */
+    </script>
+	</head>
+
+  <body>
+  </body>
+
+</html>
