@@ -1,13 +1,7 @@
 <?php
-  /* Função para não permitir que usuário acesse páginas home.php, abrir_chamado.php e consultar_chamado.php */
-
-  session_start();
-
-  /* ! para verificar se NÃO existe a $_SESSION["autenticado"] */
-  /* Função nativa IS SET, verificar se está setado */
-  if(!isset($_SESSION["autenticado"]) || $_SESSION["autenticado"] != "SIM"){
-    header("Location: index.php?login=erro2");
-  }
+  /* Passagem de script validador_acesso.php */
+  /* O require foi escolhido, pois ele encerra a requisição da página se não for autenticado o usuário -> fatal error */
+  require_once "validador_acesso.php";
 ?>
 
 <html>
@@ -46,10 +40,14 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-6 d-flex justify-content-center">
-                  <img src="formulario_abrir_chamado.png" width="70" height="70">
+                  <a href="abrir_chamado.php">
+                    <img src="formulario_abrir_chamado.png" width="70" height="70">
+                  </a>
                 </div>
                 <div class="col-6 d-flex justify-content-center">
-                  <img src="formulario_consultar_chamado.png" width="70" height="70">
+                  <a href="consultar_chamado.php">
+                    <img src="formulario_consultar_chamado.png" width="70" height="70">
+                  </a>
                 </div>
               </div>
             </div>
