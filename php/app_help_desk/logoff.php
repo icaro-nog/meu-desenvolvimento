@@ -16,7 +16,7 @@
     print_r($_SESSION);
     echo "</pre>";
 
-    // Destruir a variação de sesssão
+    // Destruir a variavel de sesssão
     // session_destroy()
 
     session_destroy(); // A Sessão será destruída, porém, apenas após a página ser recarregada. Por isso é necessário forçar um redirecionamento após a session_destroy()
