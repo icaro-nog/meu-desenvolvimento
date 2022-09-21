@@ -1,5 +1,5 @@
 <?php
-  /* Função para não permitir que usuário acesse páginas home.php, abrir_chamado.php e consultar_chamado.php */
+  /* Função para não permitir que usuário acesse páginas home.php, abrir_chamado.php, consultar_chamado.php e outras*/
 
   session_start();
 
