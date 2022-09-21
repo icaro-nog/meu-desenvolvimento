@@ -1,8 +1,6 @@
 <?php
 
-    echo "<pre>";
-    print_r($_POST);
-    echo "</pre>";
+    session_start();
 
     // Substituindo # por -
     /*
@@ -14,7 +12,7 @@
     // Sugestão de desafio -> implode("#", $_POST); -> feito
     // implode("#", $_POST) para colocar "#" entre os índices do array $_POST
     // PHP_EOL -> quebra de linha de acordo com o sistema operacional
-    $texto = implode("#", $_POST) . PHP_EOL;
+    $texto = $_SESSION["id"] . "#" . implode("#", $_POST) . PHP_EOL;
     
     // Criando um arquivo
     $arquivo = fopen("registro_chamado.hd", "a");
