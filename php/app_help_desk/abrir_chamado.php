@@ -1,5 +1,5 @@
 <?php
-  /* Passagem de script validador_acesso.php */
+  /* Passagem de script validador_acesso.php para proteger página, se login não tiver sido feito */
   require_once "validador_acesso.php";
 ?>
 
