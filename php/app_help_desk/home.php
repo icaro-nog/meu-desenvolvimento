@@ -1,5 +1,5 @@
 <?php
-  /* Passagem de script validador_acesso.php */
+  /* Passagem de script validador_acesso.php para proteger página, se login não tiver sido feito */
   /* O require foi escolhido, pois ele encerra a requisição da página se não for autenticado o usuário -> fatal error */
   require_once "validador_acesso.php";
 ?>
