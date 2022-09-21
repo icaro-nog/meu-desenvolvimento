@@ -45,6 +45,7 @@
                 <div class="form-group">
                   <input name="senha" type="password" class="form-control" placeholder="Senha">
                 </div>
+                <!-- Função para exibir erro1(valida_login.php) e erro2(validador_acesso.php) no html -->
                 <?php if(isset($_GET["login"]) && $_GET["login"] == "erro"){
                   echo "<div class='text-danger'>
                           Usuário ou senha inválido(s)!
