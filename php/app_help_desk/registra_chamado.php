@@ -10,12 +10,12 @@
     */
     
     // Sugestão de desafio -> implode("#", $_POST); -> feito
-    // implode("#", $_POST) para colocar "#" entre os índices do array $_POST
+    // implode("#", $_POST) para remover o "#" entre os índices do array $_POST
     // PHP_EOL -> quebra de linha de acordo com o sistema operacional
     $texto = $_SESSION["id"] . "#" . implode("#", $_POST) . PHP_EOL;
     
     // Criando um arquivo
-    $arquivo = fopen("registro_chamado.hd", "a");
+    $arquivo = fopen("../../../../app_help_desk/registro_chamado.hd", "a");
 
     // Escrevendo o $texto no arquivo
     fwrite($arquivo, $texto);
