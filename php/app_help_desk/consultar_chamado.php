@@ -8,7 +8,7 @@
   $chamados = [];
 
   // Abrir registro_chamado.hd
-  $arquivo = fopen("registro_chamado.hd", "r");
+  $arquivo = fopen("../../../../app_help_desk/registro_chamado.hd", "r");
 
   // Percorrer o arquivo, enquanto houver registros(linhas) a serem recuperadas
   // feof() -> Find End Of File -> Procura pelo fim do arquivo
