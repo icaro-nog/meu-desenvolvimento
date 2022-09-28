@@ -6,7 +6,6 @@
         protected $sobrenome = "Nogueira";
         public $humor = "Alegre";
 
-        /*
         public function __get($attr) {
             return $this->$attr;
         }
@@ -15,7 +14,6 @@
             $this->$attr = $value;
 
         }
-        */
 
         private function executarMania(){
             echo "Assoviar";
@@ -40,6 +38,29 @@
 
     class Filho extends Pai{
 
+        public function __construct(){
+            
+            // Exibir os métodos do objeto
+            echo "<pre>";
+            print_r(get_class_methods($this));
+            echo "</pre>";
+
+        }
+
+        // Método desconsiderado, pois o prevalecente no contexto é o do Pai
+        private function executarMania(){
+            echo "Cantar";
+        }
+
+        // Está sendo herdado e ao mesmo tempo sobreescrito no método executarAcao()
+        protected function responder(){
+            echo "Olá";
+        }
+
+        // Assim ele será executado
+        public function x(){
+            $this->executarMania();
+        }
     }
 
     $pai = new Pai();
@@ -57,5 +78,20 @@
     echo "<pre>";
     print_r($filho);
     echo "</pre>";
+   
+    // Acessando métodos protected private
+    echo $filho->executarAcao();
+    echo "<br>";
+
+    echo $filho->x();
+    
+    // Após o get_class_methods a class Filho tem acesso aos dados protected e private do objeto Pai
+    /*
+    echo $filho->__get("nome");
+    echo "<br>";
+    $filho->__set("nome", "Maicon");
+    echo $filho->__get("nome");
+    */
+
 
 ?>
