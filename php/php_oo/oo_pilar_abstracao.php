@@ -10,12 +10,12 @@
         public $salario = null;
 
         // Overloading / Sobrecarregar
-        function __set($atributo, $valor){
-            $this->$atributo = $valor;
-        }
-
         function __get($atributo){
             return $this->$atributo;
+        }
+
+        function __set($atributo, $valor){
+            $this->$atributo = $valor;
         }
 
         // Métodos Getters e Setters
