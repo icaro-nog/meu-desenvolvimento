@@ -28,7 +28,7 @@
         // Customizadas -> Utilizado em aplicações reais, por programadores, caso seja necessário customizar algum erro
 
     }catch(MinhaExceptionCustomizada $e){
-        // o método exibirMensagemErroCustomizada pode ser acessado, por conta do extendes que há na class MinhaExceptionCustomizada
+        // o método exibirMensagemErroCustomizada pode ser acessado, por conta do extends que há na class MinhaExceptionCustomizada
         $e->exibirMensagemErroCustomizada();
     }
 
