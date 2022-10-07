@@ -1,3 +1,9 @@
+<?php
+
+	session_start();
+
+?>
+
 <html>
 	<head>
 		<meta charset="utf-8" />
@@ -16,7 +22,14 @@
 				<h2>Send Mail</h2>
 				<p class="lead">Seu app de envio de e-mails particular!</p>
 			</div>
-
+			<!-- Exibição de div, caso o usuário tente diretamente acessar processa_envio.php -->
+			<?php
+				if(isset($_GET["acesso_indevido"]) && isset($_GET["acesso_indevido"]) == "erro"){
+					echo "<div class='text-danger text-center'>
+							Acesso negado a página protegida!
+						  </div>";
+					}
+			?>
       		<div class="row">
       			<div class="col-md-12">
   				
