@@ -19,3 +19,6 @@ CREATE TABLE tb_cursos (
 
 /* Para exclusão de tabela do banco de dados */
 /* DROP TABLE tb_cursos; */
+
+/* CHAR - aloca um tamanho fixo no disco, se foi definido que será de 10 posições, é alocado 10 posições para o recebimento de dados. Vantagem: Mais rápido para pesquisas - Desvantagem: se mau utilizado, pode pesar o disco de armazenamento */
+/* VARCHAR - aloca um tamanho variável no disco, se foi definido como 10 posições, mas o dado contem 4 posições, ele apenas utilizará 4 posições. Vantagem: Ocupa menos espaço em disco - Desvantagem: maior lentidão em pesquisas */
