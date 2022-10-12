@@ -36,3 +36,6 @@ ALTER TABLE tb_cursos CHANGE carga_horaria carga_hora INT(5) NULL;
 
 /* Remover coluna na tabela */
 ALTER TABLE tb_cursos DROP carga_horaria;
+
+/* Inserindo dados na tabela */
+INSERT INTO tb_cursos(ativo, carga_horaria, data_cadastro, id_curso, imagem_curso, investimento, nome_curso, resumo) values(1, 35, "2022-10-12 14:08:22", 2, "curso_angular.jpg", 575.86, "Web Completo com JS, TS e Angular", "Aprenda a criar aplicações front-end incríveis com JavaScript, TypeScript e Angular");
