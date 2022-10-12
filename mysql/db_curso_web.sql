@@ -14,6 +14,7 @@ CREATE TABLE tb_cursos (
     resumo text null,
     data_cadastro datetime not null,
     ativo boolean default true,
+    /* Um número de ponto flutuante. O número total de dígitos é especificado em size. O número de dígitos após a vírgula é especificado no parâmetro d. -> float(size, d) */
     investimento float(5, 2) default 0
 );
 
