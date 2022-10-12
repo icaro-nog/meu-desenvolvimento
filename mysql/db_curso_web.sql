@@ -26,3 +26,13 @@ DROP TABLE tb_cursos;
 
 /* Renomear tabela */
 RENAME TABLE 'nome_atual' TO 'nome_novo';
+
+/* Incluindo, editando e removendo colunas de tabelas */
+/* Incluir coluna na tabela */
+ALTER TABLE tb_cursos ADD COLUMN carga_horaria varchar(5) NOT NULL;
+
+/* Editar coluna na tabela */
+ALTER TABLE tb_cursos CHANGE carga_horaria carga_hora INT(5) NULL;
+
+/* Remover coluna na tabela */
+ALTER TABLE tb_cursos DROP carga_horaria;
