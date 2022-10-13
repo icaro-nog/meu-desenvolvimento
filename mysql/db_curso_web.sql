@@ -45,6 +45,7 @@ SELECT "coluna_tal", "outra_coluna_tal" FROM tb_cursos;
 /* Consultar todas as colunas da tabela */
 SELECT * FROM tb_cursos;
 
+/* Site para criação de dados em massa para testagem: https://generatedata.com/ */
 /* Criação de nova tabela com dados aleatórios tb_alunos */
 CREATE TABLE tb_alunos (
   id_aluno int,
