@@ -66,3 +66,8 @@ INSERT INTO `tb_alunos` (`id_aluno`,`nome`,`idade`,`interesse`,`email`,`estado`)
 SELECT * FROM `tb_alunos` WHERE idade > 30;
 SELECT * FROM `tb_alunos` WHERE idade >= 25;
 SELECT * FROM `tb_alunos` WHERE interesse > "Jogos";
+
+/* Filtros com operadores lógicos */
+SELECT * FROM `tb_alunos` WHERE interesse = "Jogos" AND idade > 45 AND estado = "RN";
+SELECT * FROM `tb_alunos` WHERE interesse = "Jogos" AND idade > 45;
+SELECT * FROM `tb_alunos` WHERE interesse = "Jogos" OR idade > 45;
