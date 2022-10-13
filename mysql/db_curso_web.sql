@@ -72,3 +72,7 @@ SELECT * FROM `tb_alunos` WHERE interesse > "Jogos";
 SELECT * FROM `tb_alunos` WHERE interesse = "Jogos" AND idade > 45 AND estado = "RN";
 SELECT * FROM `tb_alunos` WHERE interesse = "Jogos" AND idade > 45;
 SELECT * FROM `tb_alunos` WHERE interesse = "Jogos" OR idade > 45;
+
+/* Filtros com o operador BETWEEN */
+SELECT * FROM `tb_alunos` WHERE idade BETWEEN 18 AND 25;
+SELECT * FROM `tb_alunos` WHERE data BETWEEN "25-10-2022" AND "12-01-2035";
