@@ -105,3 +105,12 @@ SELECT * FROM `tb_alunos` WHERE idade BETWEEN 18 AND 59 ORDER BY nome ASC;
 SELECT * FROM `tb_alunos` WHERE idade BETWEEN 18 AND 59 ORDER BY nome DESC;
 -- Idade entre 18 e 59 anos e nome em ordem alfabética descrescente zyx...
 SELECT * FROM `tb_alunos` WHERE idade BETWEEN 18 AND 59 ORDER BY nome ASC, idade DESC, estado ASC;
+
+/* Limitando retorno de resultados */
+SELECT * FROM `tb_alunos` LIMIT 25;
+-- id início de 100 até 76
+SELECT * FROM `tb_alunos` ORDER BY id_aluno DESC LIMIT 25;
+-- partindo do id 0, listagem de 4 registros
+SELECT * FROM `tb_alunos` LIMIT 4 OFFSET 0;
+-- partindo do id 8, listagem de 4 registros (forma mais enxuta)
+SELECT * FROM `tb_alunos` LIMIT 8, 4;
