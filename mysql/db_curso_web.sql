@@ -97,3 +97,11 @@ SELECT * FROM `tb_alunos` WHERE nome LIKE "_riel";
 SELECT * FROM `tb_alunos` WHERE nome LIKE "_ru_";
 -- Caracteres aleatórios "tt" e um único caractere ao final
 SELECT * FROM `tb_alunos` WHERE nome LIKE "%tt_";
+
+/* Ordenando resultados */
+-- Idade entre 18 e 59 anos e nome em ordem alfabética abc...
+SELECT * FROM `tb_alunos` WHERE idade BETWEEN 18 AND 59 ORDER BY nome ASC;
+-- Idade entre 18 e 59 anos e nome em ordem alfabética descrescente zyx...
+SELECT * FROM `tb_alunos` WHERE idade BETWEEN 18 AND 59 ORDER BY nome DESC;
+-- Idade entre 18 e 59 anos e nome em ordem alfabética descrescente zyx...
+SELECT * FROM `tb_alunos` WHERE idade BETWEEN 18 AND 59 ORDER BY nome ASC, idade DESC, estado ASC;
