@@ -82,3 +82,18 @@ SELECT * FROM `tb_alunos` WHERE data BETWEEN "25-10-2022" AND "12-01-2035";
 SELECT * FROM `tb_alunos` WHERE interesse IN("Jogos", "Esporte", "Música");
 /* NOT IN para retornar apenas onde o interesse NÃO É "Jogos", "Esporte", "Música" */
 SELECT * FROM `tb_alunos` WHERE interesse NOT IN("Jogos", "Esporte", "Música");
+
+/* Filtros com o operador LIKE */
+SELECT * FROM `tb_alunos` WHERE nome LIKE "Evelyn";
+-- Nomes terminados com a letra "e" 
+SELECT * FROM `tb_alunos` WHERE nome LIKE "%e";
+-- Nomes que comecem com -> qualquer conjunto de caracteres "e" qualquer conjunto de caracteres <-
+SELECT * FROM `tb_alunos` WHERE nome LIKE "%e%";
+-- Nomes que comecem com a letra "C"
+SELECT * FROM `tb_alunos` WHERE nome LIKE "C%";
+-- Um único caractere terminando com "riel"
+SELECT * FROM `tb_alunos` WHERE nome LIKE "_riel";
+-- Um único caractere "ru" um único caractere
+SELECT * FROM `tb_alunos` WHERE nome LIKE "_ru_";
+-- Caracteres aleatórios "tt" e um único caractere ao final
+SELECT * FROM `tb_alunos` WHERE nome LIKE "%tt_";
