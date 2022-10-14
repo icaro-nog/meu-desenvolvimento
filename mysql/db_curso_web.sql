@@ -76,3 +76,9 @@ SELECT * FROM `tb_alunos` WHERE interesse = "Jogos" OR idade > 45;
 /* Filtros com o operador BETWEEN */
 SELECT * FROM `tb_alunos` WHERE idade BETWEEN 18 AND 25;
 SELECT * FROM `tb_alunos` WHERE data BETWEEN "25-10-2022" AND "12-01-2035";
+
+/* Filtros com o operador IN e NOT IN */
+-- SELECT * FROM `tb_alunos` WHERE interesse = "Jogos" OR interesse = "Esporte" OR interesse = "Música"; --
+SELECT * FROM `tb_alunos` WHERE interesse IN("Jogos", "Esporte", "Música");
+/* NOT IN para retornar apenas onde o interesse NÃO É "Jogos", "Esporte", "Música" */
+SELECT * FROM `tb_alunos` WHERE interesse NOT IN("Jogos", "Esporte", "Música");
