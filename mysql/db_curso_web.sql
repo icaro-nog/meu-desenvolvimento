@@ -151,3 +151,13 @@ SELECT interesse, COUNT(*) AS total_por_interesse FROM `tb_alunos` GROUP BY inte
 SELECT estado, COUNT(*) AS total_por_estado FROM `tb_alunos` GROUP BY estado;
 -- Retorna a quantidade de ocorrências de cada estado de tb_alunos, mostrando apenas a coluna estado, onde o estado é "ES", com um alias total_por_estado -> 5
 SELECT estado, COUNT(*) AS total_por_estado FROM `tb_alunos` WHERE estado = "ES" GROUP BY estado;
+
+/* Filtrando seleções agrupadas com HAVING */
+-- Retorna a quantidade de ocorrências de cada estado de tb_alunos, mostrando apenas a coluna estado, tendo o estado maior ou igual a 5, com um alias total_registros_estado
+SELECT estado, COUNT(*) AS total_registros_estado FROM `tb_alunos` GROUP BY estado HAVING total_registros_estado >= 5;
+-- Retorna a quantidade de ocorrências de cada estado de tb_alunos, mostrando apenas a coluna estado, tendo o estado "MG" e "SP", com um alias total_registros_estado
+SELECT estado, COUNT(*) AS total_registros_estado FROM `tb_alunos` GROUP BY estado HAVING estado IN("MG", "SP");
+-- Retorna a quantidade de ocorrências de cada estado de tb_alunos, mostrando apenas a coluna estado, tendo o estado "CE" e "SC", e o total_registros_estado é maior que 4
+SELECT estado, COUNT(*) AS total_registros_estado FROM `tb_alunos` GROUP BY estado HAVING estado IN("CE", "SC") AND total_registros_estado > 4;
+-- Retorna a quantidade de ocorrências de cada estado de tb_alunos, mostrando apenas a coluna estado, tendo o interesse diferente de "Esporte", e o total_registros_estado é maior que 3
+SELECT estado, COUNT(*) AS total_registros_estado FROM `tb_alunos` WHERE interesse != "Esporte" GROUP BY estado HAVING total_registros_estado > 3;
