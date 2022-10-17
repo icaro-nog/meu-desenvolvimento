@@ -124,3 +124,11 @@ SELECT MIN(investimento) FROM `tb_cursos` WHERE ativo = true;
 SELECT MAX(investimento) FROM `tb_cursos` WHERE ativo = true;
 -- Retorna o investimento MÉDIO de tb_cursos de cursos ativos
 SELECT AVG(investimento) FROM `tb_cursos` WHERE ativo = true;
+
+/* Funções de agregação parte 2: SUM e COUNT */
+-- Retorna a soma de todos os valores de investimento de tb_cursos
+SELECT SUM(investimento) FROM `tb_cursos`;
+-- Retorna a quantidade de todos os registros ativos de tb_cursos -> 4
+SELECT COUNT(*) FROM `tb_cursos` WHERE ativo = true;
+-- Retorna a quantidade de todos os registros inativos de tb_cursos -> 1
+SELECT COUNT(*) FROM `tb_cursos` WHERE ativo = false;
