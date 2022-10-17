@@ -137,3 +137,17 @@ SELECT SUM(investimento) FROM `tb_cursos`;
 SELECT COUNT(*) FROM `tb_cursos` WHERE ativo = true;
 -- Retorna a quantidade de todos os registros inativos de tb_cursos -> 1
 SELECT COUNT(*) FROM `tb_cursos` WHERE ativo = false;
+
+/* Agrupando seleção de registros com GROUP BY */
+-- Retorna a variedade de interesses de tb_alunos -> 5
+SELECT * FROM `tb_alunos` GROUP BY interesse;
+-- Retorna a quantidade de ocorrências de cada interesse de tb_alunos
+SELECT *, COUNT(*) FROM `tb_alunos` GROUP BY interesse;
+-- Retorna a quantidade de ocorrências de cada interesse de tb_alunos, mostrando apenas a coluna interesse
+SELECT interesse, COUNT(*) FROM `tb_alunos` GROUP BY interesse;
+-- Retorna a quantidade de ocorrências de cada interesse de tb_alunos, mostrando apenas a coluna interesse, com um alias total_por_interesse
+SELECT interesse, COUNT(*) AS total_por_interesse FROM `tb_alunos` GROUP BY interesse;
+-- Retorna a quantidade de ocorrências de cada estado de tb_alunos, mostrando apenas a coluna estado, com um alias total_por_estado
+SELECT estado, COUNT(*) AS total_por_estado FROM `tb_alunos` GROUP BY estado;
+-- Retorna a quantidade de ocorrências de cada estado de tb_alunos, mostrando apenas a coluna estado, onde o estado é "ES", com um alias total_por_estado -> 5
+SELECT estado, COUNT(*) AS total_por_estado FROM `tb_alunos` WHERE estado = "ES" GROUP BY estado;
