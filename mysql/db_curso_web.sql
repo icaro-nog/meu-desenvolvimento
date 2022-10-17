@@ -114,3 +114,13 @@ SELECT * FROM `tb_alunos` ORDER BY id_aluno DESC LIMIT 25;
 SELECT * FROM `tb_alunos` LIMIT 4 OFFSET 0;
 -- partindo do id 8, listagem de 4 registros (forma mais enxuta)
 SELECT * FROM `tb_alunos` LIMIT 8, 4;
+
+/* Funções de agregação parte 1: MIN, MAX e AVG */
+-- Retorna o investimento MÍNIMO de tb_cursos
+SELECT MIN(investimento) FROM `tb_cursos`;
+-- Retorna o investimento MÍNIMO de tb_cursos de um curso ATIVO
+SELECT MIN(investimento) FROM `tb_cursos` WHERE ativo = true;
+-- Retorna o investimento MÁXIMO de tb_cursos de um cursto ATIVO
+SELECT MAX(investimento) FROM `tb_cursos` WHERE ativo = true;
+-- Retorna o investimento MÉDIO de tb_cursos de cursos ativos
+SELECT AVG(investimento) FROM `tb_cursos` WHERE ativo = true;
