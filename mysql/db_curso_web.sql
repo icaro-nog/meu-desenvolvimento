@@ -177,3 +177,12 @@ SELECT * FROM `tb_alunos` WHERE idade BETWEEN 18 AND 25 AND estado = "PA";
 UPDATE tb_alunos SET nome = "Maria" WHERE idade BETWEEN 18 AND 25 AND estado = "PA";
 -- Para checar atualização de nome
 SELECT * FROM `tb_alunos` WHERE idade BETWEEN 18 AND 25 AND estado = "PA";
+
+/* Excluindo registros com DELETE */
+-- Deletar registro com id_aluno = 5
+DELETE FROM `tb_alunos` WHERE id_aluno = 5;
+-- Checar quais registros serão deletados
+SELECT * FROM `tb_alunos` WHERE idade IN(10, 18, 22, 28, 34) AND interesse = "Esporte";
+-- Deletar registros com condições
+DELETE FROM `tb_alunos` WHERE idade IN(10, 18, 22, 28, 34) AND interesse = "Esporte";
+-- Recomendado: apenas dar um UPDATE nos registros mudando algum dado de controle nos mesmos, assim como na tb_cursos de ativo >= 1 para inativo = 0, mantendo os dados salvos para futuras consultas
