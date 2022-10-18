@@ -161,3 +161,19 @@ SELECT estado, COUNT(*) AS total_registros_estado FROM `tb_alunos` GROUP BY esta
 SELECT estado, COUNT(*) AS total_registros_estado FROM `tb_alunos` GROUP BY estado HAVING estado IN("CE", "SC") AND total_registros_estado > 4;
 -- Retorna a quantidade de ocorrências de cada estado de tb_alunos, mostrando apenas a coluna estado, tendo o interesse diferente de "Esporte", e o total_registros_estado é maior que 3
 SELECT estado, COUNT(*) AS total_registros_estado FROM `tb_alunos` WHERE interesse != "Esporte" GROUP BY estado HAVING total_registros_estado > 3;
+
+/* Atualizando registros com UPDATE */
+-- Atualizando o nome, onde id_aluno = 13
+UPDATE tb_alunos SET nome = "João" WHERE id_aluno = 13;
+-- Atualizando o interesse para Saúde, onde idade é >= 80
+UPDATE tb_alunos SET interesse = "Saúde" WHERE idade >= 80;
+-- Para checar atualizações, retorno de 16 registros
+SELECT * FROM `tb_alunos` WHERE interesse = "Saúde" AND idade >= 80;
+-- Atualizar mais de um registro de id_aluno = 18
+UPDATE tb_alunos SET nome = "José", idade = 25, email = "jose@gmail.com" WHERE id_aluno = 18;
+-- Retornar registro com mais de duas condições AND
+SELECT * FROM `tb_alunos` WHERE idade BETWEEN 18 AND 25 AND estado = "PA";
+-- Atualizando registro com mais de duas condições AND
+UPDATE tb_alunos SET nome = "Maria" WHERE idade BETWEEN 18 AND 25 AND estado = "PA";
+-- Para checar atualização de nome
+SELECT * FROM `tb_alunos` WHERE idade BETWEEN 18 AND 25 AND estado = "PA";
