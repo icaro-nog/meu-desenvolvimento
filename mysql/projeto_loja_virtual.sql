@@ -50,3 +50,29 @@ INSERT INTO tb_imagens(id_produto, url_imagem) VALUES(1, "notebook_1.jpg"), (1, 
 INSERT INTO tb_imagens(id_produto, url_imagem) VALUES(2, "smarttv_1.jpg"), (2, "smarttv_2.jpg"), (2, "smarttv_3.jpg");
 
 INSERT INTO tb_imagens(id_produto, url_imagem) VALUES(3, "smartphone_1.jpg");
+
+-- Criação de tb_clientes
+CREATE TABLE tb_clientes(
+	id_cliente INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    idade INT(3) NOT NULL
+)
+
+-- Criação de tb_pedidos
+CREATE TABLE tb_pedidos(
+	id_pedido INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id_cliente INT NOT NULL, 
+    -- Referenciação de id_cliente, vindo da tb_clientes, para que seja possível identificar qual cliente que realizou o pedido
+    FOREIGN KEY(id_cliente) REFERENCES tb_clientes(id_cliente),
+    data_hora DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+)
+
+-- Criação de tb_pedidos_produtos - Para ser possível identificar o id_pedido junto do id_produto
+CREATE TABLE tb_pedidos_produtos( 
+    id_pedido INT NOT NULL, 
+    -- Referenciação de id_pedido, vindo da tb_pedidos
+    FOREIGN KEY(id_pedido) REFERENCES tb_pedidos(id_pedido), 
+    id_produto INT NOT NULL, 
+    -- Referenciação de id_produto, vindo da tb_produtos
+    FOREIGN KEY(id_produto) REFERENCES tb_produtos(id_produto) 
+);
