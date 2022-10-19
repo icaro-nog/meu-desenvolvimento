@@ -44,7 +44,7 @@ CREATE TABLE tb_imagens(
     url_imagem VARCHAR(200) NOT NULL
 )
 
--- Inserção de registros com relacionamento Muitos para Muitos (mais de uma imagem relacionada ao mesmo id_produto)
+-- Inserção de registros com relacionamento Um para Muitos (mais de uma imagem relacionada ao mesmo id_produto)
 INSERT INTO tb_imagens(id_produto, url_imagem) VALUES(1, "notebook_1.jpg"), (1, "notebook_2.jpg"), (1, "notebook_3.jpg");
 
 INSERT INTO tb_imagens(id_produto, url_imagem) VALUES(2, "smarttv_1.jpg"), (2, "smarttv_2.jpg"), (2, "smarttv_3.jpg");
