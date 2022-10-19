@@ -75,4 +75,29 @@ CREATE TABLE tb_pedidos_produtos(
     id_produto INT NOT NULL, 
     -- Referenciação de id_produto, vindo da tb_produtos
     FOREIGN KEY(id_produto) REFERENCES tb_produtos(id_produto) 
-);
+)
+
+-- Inserção de cliente
+INSERT INTO tb_clientes(nome, idade) VALUES("Jorge", 29)
+
+-- Inserção de id_cliente em tb_pedido
+INSERT INTO tb_pedidos(id_cliente) VALUES(1)
+
+-- Inserção de id_pedido e id_produto em tb_pedidos_produtos
+INSERT INTO tb_pedidos_produtos(id_pedido, id_produto) VALUES(1, 2)
+-- Inserção de mais um produto no mesmo id_pedido anterior
+INSERT INTO tb_pedidos_produtos(id_pedido, id_produto) VALUES(1, 3)
+
+-- Inserção de novo pedido, relacionado ao mesmo id_cliente anterior
+INSERT INTO tb_pedidos(id_cliente) VALUES(1)
+-- Inserção de id_pedido e id_produto em tb_pedidos_produtos -  id_cliente 1 fez outro pedido (id_pedido 3) com id_produto 3
+INSERT INTO tb_pedidos_produtos(id_pedido, id_produto) VALUES(2, 3)
+
+-- Inserção de cliente
+INSERT INTO tb_clientes(nome, idade) VALUES("Jamilton", 20)
+
+-- Inserção de id_cliente 2 em tb_pedido
+INSERT INTO tb_pedidos(id_cliente) VALUES(2)
+
+-- Inserção de novo pedido, relacionado id_cliente 2
+INSERT INTO tb_pedidos_produtos(id_pedido, id_produto) VALUES(3, 1)
