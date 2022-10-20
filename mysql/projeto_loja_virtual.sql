@@ -112,3 +112,25 @@ SELECT * FROM tb_produtos LEFT JOIN tb_imagens ON(tb_produtos.id_produto = tb_im
 -- Junção a direita com RIGHT JOIN
 -- RIGTH torna a tabela a DIREITA como prioritária, mostrando apenas os registros que existam (NULL não é retornado)
 SELECT * FROM tb_clientes RIGHT JOIN tb_pedidos ON (tb_clientes.id_cliente = tb_pedidos.id_cliente)
+
+-- Junção interna com INNER JOIN
+-- Inserção de novo produto
+INSERT INTO tb_produtos(produto, valor) VALUES("HD Externo Portátil Seagate Expansion 1TB USB 3.0", 274.90)
+
+-- Seleção apenas para comparação
+SELECT * FROM tb_pedidos LEFT JOIN tb_pedidos_produtos ON(tb_pedidos.id_pedido = tb_pedidos_produtos.id_pedido)
+
+-- Selecionar tudo de tb_pedidos com tudo de tb_pedidos_produtos e tudo de tb_produtos, tabela prioritária é tb_pedidos
+SELECT * FROM tb_pedidos LEFT JOIN tb_pedidos_produtos ON(tb_pedidos.id_pedido = tb_pedidos_produtos.id_pedido) LEFT JOIN tb_produtos ON (tb_pedidos_produtos.id_produto = tb_produtos.id_produto)
+
+-- Selecionar tudo de tb_pedidos com tudo de tb_pedidos_produtos e com tudo de tb_produtos, tabela prioritária é tb_pedidos_produtos
+SELECT * FROM tb_pedidos RIGHT JOIN tb_pedidos_produtos ON(tb_pedidos.id_pedido = tb_pedidos_produtos.id_pedido) LEFT JOIN tb_produtos ON (tb_pedidos_produtos.id_produto = tb_produtos.id_produto);
+
+-- Selecionar tudo de tb_pedidos com tudo de tb_pedidos_produtos e com tudo de tb_produtos, tabela prioritária é tb_produtos
+SELECT * FROM tb_pedidos RIGHT JOIN tb_pedidos_produtos ON(tb_pedidos.id_pedido = tb_pedidos_produtos.id_pedido) RIGHT JOIN tb_produtos ON (tb_pedidos_produtos.id_produto = tb_produtos.id_produto);
+
+-- Retorna apenas os registros que houverem relação entre sí nas duas tabelas
+SELECT * FROM tb_pedidos INNER JOIN tb_pedidos_produtos ON(tb_pedidos.id_pedido = tb_pedidos_produtos.id_pedido)
+
+-- Retorna apenas os registros que houverem relação entre sí nas três tabelas
+SELECT * FROM tb_pedidos INNER JOIN tb_pedidos_produtos ON(tb_pedidos.id_pedido = tb_pedidos_produtos.id_pedido) INNER JOIN tb_produtos ON(tb_pedidos_produtos.id_produto = tb_produtos.id_produto)
