@@ -134,3 +134,18 @@ SELECT * FROM tb_pedidos INNER JOIN tb_pedidos_produtos ON(tb_pedidos.id_pedido 
 
 -- Retorna apenas os registros que houverem relação entre sí nas três tabelas
 SELECT * FROM tb_pedidos INNER JOIN tb_pedidos_produtos ON(tb_pedidos.id_pedido = tb_pedidos_produtos.id_pedido) INNER JOIN tb_produtos ON(tb_pedidos_produtos.id_produto = tb_produtos.id_produto)
+
+-- Apelidando tabelas com ALIAS - AS
+SELECT * FROM tb_produtos LEFT JOIN tb_descricoes_tecnicas ON(tb_produtos.id_produto = tb_descricoes_tecnicas.id_produto)
+
+-- AS
+SELECT * FROM tb_produtos AS p LEFT JOIN tb_descricoes_tecnicas AS dt ON(p.id_produto = dt.id_produto)
+
+-- Selecionando colunas específicas com o AS
+SELECT p.id_produto, p.produto, p.valor, dt.descricao_tecnica FROM tb_produtos AS p LEFT JOIN tb_descricoes_tecnicas AS dt ON(p.id_produto = dt.id_produto)
+
+-- Selecionando colunas específicas com AS referenciado e valor maior ou igual a 500
+SELECT p.id_produto, p.produto, p.valor, dt.descricao_tecnica FROM tb_produtos AS p LEFT JOIN tb_descricoes_tecnicas AS dt ON(p.id_produto = dt.id_produto) WHERE p.valor >= 500
+
+-- Selecionando colunas específicas com AS referenciado e valor maior ou igual a 500 e ordenando de forma crescente
+SELECT p.id_produto, p.produto, p.valor, dt.descricao_tecnica FROM tb_produtos AS p LEFT JOIN tb_descricoes_tecnicas AS dt ON(p.id_produto = dt.id_produto) WHERE p.valor >= 500 ORDER BY p.valor ASC
