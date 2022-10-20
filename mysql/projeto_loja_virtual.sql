@@ -101,3 +101,10 @@ INSERT INTO tb_pedidos(id_cliente) VALUES(2)
 
 -- Inserção de novo pedido, relacionado id_cliente 2
 INSERT INTO tb_pedidos_produtos(id_pedido, id_produto) VALUES(3, 1)
+
+-- Junção à esquerda com LEFT JOIN
+-- Selecionar tudo de tb_pedidos com tudo de tb_clientes, relacionando a forma como serão exibidas id_cliente de uma e id_cliente da outra
+SELECT * FROM tb_clientes LEFT JOIN tb_pedidos ON (tb_clientes.id_cliente = tb_pedidos.id_cliente)
+
+-- Selecionar tudo de tb_produtos com tudo de tb_imagens, relacionando a forma como serão exibidas id_produto de uma e id_produto da outra 
+SELECT * FROM tb_produtos LEFT JOIN tb_imagens ON(tb_produtos.id_produto = tb_imagens.id_produto)
