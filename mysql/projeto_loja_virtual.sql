@@ -108,3 +108,7 @@ SELECT * FROM tb_clientes LEFT JOIN tb_pedidos ON (tb_clientes.id_cliente = tb_p
 
 -- Selecionar tudo de tb_produtos com tudo de tb_imagens, relacionando a forma como serão exibidas id_produto de uma e id_produto da outra 
 SELECT * FROM tb_produtos LEFT JOIN tb_imagens ON(tb_produtos.id_produto = tb_imagens.id_produto)
+
+-- Junção a direita com RIGHT JOIN
+-- RIGTH torna a tabela a DIREITA como prioritária, mostrando apenas os registros que existam (NULL não é retornado)
+SELECT * FROM tb_clientes RIGHT JOIN tb_pedidos ON (tb_clientes.id_cliente = tb_pedidos.id_cliente)
