@@ -13,14 +13,27 @@
             function requisitarPagina(url){
                 // Instância da requisição xmlhttp
                 let ajax = new XMLHttpRequest();
+
+                // Requisição não iniciada, state = 0
+                console.log(ajax.readyState)
             
-                // ajax.open para "abrir" a página. Método GET, recebendo a url de fora da função
+                // ajax.open para "abrir" conexão com o servidor. Método GET, recebendo a url de fora da função
                 ajax.open("GET", url)
-                // Fazendo o envio da requisição
+
+                // Conexão estabelecida com o servidor, state = 1
+                console.log(ajax.readyState)
+
+                // Lógica para que o client "saiba" o progresso da requisição
+                    // => Arrow function, essa função será dispara automaticamente a cada mudança de estado do progresso da requisição
+                ajax.onreadystatechange = () => {
+                    console.log(ajax.readyState)
+                }
+
+                // Fazendo o envio da requisição para o servidor
                 ajax.send()
 
                 // Exibição de dados da página no console
-                console.log(ajax)
+                //console.log(ajax)
             }
             
         </script>
