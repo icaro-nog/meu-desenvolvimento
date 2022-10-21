@@ -1,9 +1,3 @@
-<?php
-
-	for()
-
-?>
-
 <div class="panel panel-default">
 	<div class="panel-body">
 		<h4>PÁGINA 1</h4>
