@@ -11,22 +11,37 @@
         <script>
 
             function requisitarPagina(url){
+
+				// Incluir gif de loading na página
+				if(!document.getElementById("loading")){
+					let imgLoading = document.createElement("img")
+					imgLoading.id = "loading"
+					imgLoading.src = "loading.gif"
+					imgLoading.className = "rounded mx-auto d-block"
+
+					document.getElementById("conteudo").appendChild(imgLoading)
+				}
+				
                 // Instância da requisição xmlhttp
                 let ajax = new XMLHttpRequest();
 
                 // Requisição não iniciada, state = 0
-                console.log(ajax.readyState)
+                //console.log(ajax.readyState)
             
                 // ajax.open para "abrir" conexão com o servidor. Método GET, recebendo a url de fora da função
                 ajax.open("GET", url)
 
                 // Conexão estabelecida com o servidor, state = 1
-                console.log(ajax.readyState)
+                //console.log(ajax.readyState)
 
                 // Lógica para que o client "saiba" o progresso da requisição
                     // => Arrow function, essa função será dispara automaticamente a cada mudança de estado do progresso da requisição
                 ajax.onreadystatechange = () => {
-                    console.log(ajax.readyState)
+					if(ajax.readyState == 4){
+						console.log("Requisição finalizada com sucesso!")
+						// Remover gif de loading quando finalizar a requisição
+						document.getElementById("loading").remove()
+					} 
                 }
 
                 // Fazendo o envio da requisição para o servidor
@@ -57,7 +72,7 @@
 	    	<div class="row mb-2">
 	    		<div class="col-md-4 center"></div>
 	    		<div class="col-md-4 center">
-	    			<a href="#" class="btn btn-primary" onclick="requisitarPagina('pagina_1_conteudo.html')">Página 1</a>
+	    			<a href="#" class="btn btn-primary" onclick="requisitarPagina('pagina_1_conteudo.php')">Página 1</a>
 	    			<a href="#" class="btn btn-primary" onclick="requisitarPagina('pagina_2_conteudo.html')">Página 2</a>
 	    			<a href="#" class="btn btn-primary" onclick="requisitarPagina('pagina_3_conteudo.html')">Página 3</a>
 	    		</div>
@@ -67,7 +82,7 @@
 	    	<div class="row">
 		    	<div class="col-md-1"></div>
 
-		    	<div class="col-md-10">
+		    	<div class="col-md-10" id="conteudo">
 		    		
 		    	</div>
 		    		
