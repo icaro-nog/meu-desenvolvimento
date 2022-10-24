@@ -38,6 +38,8 @@
                     // => Arrow function, essa função será dispara automaticamente a cada mudança de estado do progresso da requisição
                 ajax.onreadystatechange = () => {
 					if(ajax.readyState == 4){
+
+						console.log("O status da requisição é: ", ajax.status)
 						console.log("Requisição finalizada com sucesso!")
 						// Remover gif de loading quando finalizar a requisição
 						document.getElementById("loading").remove()
