@@ -42,17 +42,25 @@
                 ajax.onreadystatechange = () => {
 					/* Link de base estudos sobre ajax.status: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status */
 					if(ajax.readyState == 4 && ajax.status == 200){
-						document.getElementById("conteudo").innerHTML = "Requisição finalizada com sucesso, o status é 200!"
+						// Texto de página html requisitada com ajax.responseText
+						document.getElementById("conteudo").innerHTML = ajax.responseText
+						//console.log(ajax.responseText)
 
 						// Remover gif de loading quando finalizar a requisição
 						document.getElementById("loading").remove()
 					}
 					
 					if(ajax.readyState == 4 && ajax.status == 404){
-						document.getElementById("conteudo").innerHTML = "Requisição finalizada, porém o recurso solicitado não foi encontrado, o status é: " + ajax.status
-						
+
 						// Remover gif de loading quando finalizar a requisição
 						document.getElementById("loading").remove()
+
+						let imgLoadingError = document.createElement("img")
+						imgLoadingError.id = "error"
+						imgLoadingError.src = "error.gif"
+						imgLoadingError.className = "rounded mx-auto d-block"
+
+						document.getElementById("conteudo").appendChild(imgLoadingError)
 					}
                 }
 
@@ -85,7 +93,7 @@
 	    		<div class="col-md-4 center"></div>
 	    		<div class="col-md-4 center">
 	    			<a href="#" class="btn btn-primary" onclick="requisitarPagina('pagina_1_conteudo.php')">Página 1</a>
-	    			<a href="#" class="btn btn-primary" onclick="requisitarPagina('pagina_2_conteudo.html')">Página 2</a>
+	    			<a href="#" class="btn btn-primary" onclick="requisitarPagina('pagina_5_conteudo.html')">Página 2</a>
 	    			<a href="#" class="btn btn-primary" onclick="requisitarPagina('pagina_3_conteudo.html')">Página 3</a>
 	    		</div>
 	    		<div class="col-md-4 center"></div>
