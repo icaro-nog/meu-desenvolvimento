@@ -16,8 +16,9 @@
                     if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
                         let XMLFilmes = xmlhttp.responseText
                         console.log(XMLFilmes)
+                        // Link para base de estudos sobre DOMParser: https://developer.mozilla.org/en-US/docs/Web/API/DOMParser/parseFromString
                         let parser = new DOMParser()
-
+                        // Analisando uma string contendo HTML ou XML, retornando um HTMLDocument ou um XMLDocument
                         domFilmes = parser.parseFromString(XMLFilmes, "text/xml")
 
                         console.log(domFilmes)
