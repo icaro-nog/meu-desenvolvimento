@@ -5,6 +5,7 @@
         <title> Catálogo de filmes </title>
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <script src="xmltojson.js"></script>
         <script>
             function getFilmes(){
                 let xmlhttp = new XMLHttpRequest();
@@ -13,8 +14,17 @@
 
                 xmlhttp.onreadystatechange = () =>{
                     if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-                        let xmlFilmes = xmlhttp.responseText
-                        console.log(xmlFilmes)
+                        let XMLFilmes = xmlhttp.responseText
+                        console.log(XMLFilmes)
+                        let parser = new DOMParser()
+
+                        domFilmes = parser.parseFromString(XMLFilmes, "text/xml")
+
+                        console.log(domFilmes)
+
+                        jsonFilmes = xmlToJson(domFilmes)
+
+                        console.log(jsonFilmes)
                     }
 
                     if(xmlhttp.readyState == 4 && xmlhttp.status == 404){
