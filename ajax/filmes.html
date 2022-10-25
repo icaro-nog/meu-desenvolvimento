@@ -1,0 +1,49 @@
+<html lang="pt-br">
+
+    <head>
+        <meta charset="utf-8">
+        <title> Catálogo de filmes </title>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <script>
+            function getFilmes(){
+                let xmlhttp = new XMLHttpRequest();
+
+                xmlhttp.open("GET", "http://localhost/meu-desenvolvimento/ajax/filmes.xml")
+
+                xmlhttp.onreadystatechange = () =>{
+                    if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                        let xmlFilmes = xmlhttp.responseText
+                        console.log(xmlFilmes)
+                    }
+
+                    if(xmlhttp.readyState == 4 && xmlhttp.status == 404){
+                        // Realizar testes posteriormente
+                    }
+                }
+
+                xmlhttp.send()
+            }
+        </script>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-light bg-light mb-4">
+            <div class="container">
+                <div class="navbar-brand mb-0 h1">
+                    <h3> Catálogo de filmes </h3>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <button type="button" class="btn btn-success" onclick="getFilmes()"> Listar filmes </button>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+</html>
