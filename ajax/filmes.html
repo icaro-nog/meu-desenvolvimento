@@ -47,7 +47,7 @@
                             for(let g in item.genero){
                                 if(genero) genero += ", " /* Concatenar vírgula e espaço ao final de cada string - forma enxuta de escrever if */ 
 
-                                // Para se chegar ao texto das dos dois índices em <genero> no arquivo filmes.xml e concatená-los
+                                // Para se chegar ao texto dos dois índices em <genero> no arquivo filmes.xml e concatenar um ao outro
                                 genero += item.genero[g]["#text"]
                             }
 
@@ -58,7 +58,7 @@
                             for(let a in item.elenco.ator){
                                 if(ator) ator += ", " /* Concatenar vírgula e espaço ao final de cada string - forma enxuta de escrever if */ 
 
-                               // Para se chegar ao texto das dos três índices em <elenco> no arquivo filmes.xml e concatená-los
+                               // Para se chegar ao texto dos três índices em <ator> no arquivo filmes.xml e concatenar um ao outro
                                ator += item.elenco.ator[a]["#text"]
                             }
 
