@@ -8,32 +8,88 @@
         <script src="xmltojson.js"></script>
         <script>
             function getFilmes(){
-                let xmlhttp = new XMLHttpRequest();
+                let xmlHttp = new XMLHttpRequest();
 
-                xmlhttp.open("GET", "http://localhost/meu-desenvolvimento/ajax/filmes.xml")
+                xmlHttp.open("GET", "http://localhost/meu-desenvolvimento/ajax/filmes.xml")
 
-                xmlhttp.onreadystatechange = () =>{
-                    if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
-                        let XMLFilmes = xmlhttp.responseText
-                        console.log(XMLFilmes)
+                xmlHttp.onreadystatechange = () =>{
+                    if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
+                        let XMLFilmes = xmlHttp.responseText
+                        //console.log(XMLFilmes)
                         // Link para base de estudos sobre DOMParser: https://developer.mozilla.org/en-US/docs/Web/API/DOMParser/parseFromString
                         let parser = new DOMParser()
                         // Analisando uma string contendo HTML ou XML, retornando um HTMLDocument ou um XMLDocument
                         domFilmes = parser.parseFromString(XMLFilmes, "text/xml")
 
-                        console.log(domFilmes)
+                        //console.log(domFilmes)
 
                         jsonFilmes = xmlToJson(domFilmes)
 
                         console.log(jsonFilmes)
+
+                        for(let i in jsonFilmes["filmes"]["filme"]){
+
+                            item = jsonFilmes["filmes"]["filme"][i]
+
+                            let divRow = document.createElement("div")
+                            divRow.className = "row"
+
+                            let divCol = document.createElement("div")
+                            divCol.className = "col"
+
+                            let p1 = document.createElement("p")
+                            p1.innerHTML = "<strong>Título:</strong> " + item["titulo"]["#text"]
+
+                            let p2 = document.createElement("p")
+                            p2.innerHTML = "<strong>Resumo:</strong> " + item["resumo"]["#text"]
+
+                            let genero = ""
+                            for(let g in item.genero){
+                                if(genero) genero += ", " /* Concatenar vírgula e espaço ao final de cada string - forma enxuta de escrever if */ 
+
+                                // Para se chegar ao texto das dos dois índices em <genero> no arquivo filmes.xml e concatená-los
+                                genero += item.genero[g]["#text"]
+                            }
+
+                            let p3 = document.createElement("p")
+                            p3.innerHTML = "<strong>Gênero:</strong> " + genero
+
+                            let ator = ""
+                            for(let a in item.elenco.ator){
+                                if(ator) ator += ", " /* Concatenar vírgula e espaço ao final de cada string - forma enxuta de escrever if */ 
+
+                               // Para se chegar ao texto das dos três índices em <elenco> no arquivo filmes.xml e concatená-los
+                               ator += item.elenco.ator[a]["#text"]
+                            }
+
+                            let p4 = document.createElement("p")
+                            p4.innerHTML = "<strong>Elenco:</strong> " + ator
+
+                            let p5 = document.createElement("p")
+                            p5.innerHTML = "<strong>Data de lançamento:</strong> " + item["dataLancamento"]["#text"] + " " +(item.dataLancamento["@attributes"]["pais"])
+
+                            let hr = document.createElement("hr")
+
+                            divRow.appendChild(divCol)
+                            divCol.appendChild(p1)
+                            divCol.appendChild(p2)
+                            divCol.appendChild(p3)
+                            divCol.appendChild(p4)
+                            divCol.appendChild(p5)
+                            divCol.appendChild(hr)
+
+                            let lista = document.getElementById("lista")
+                            lista.appendChild(divRow)
+
+                        }
                     }
 
-                    if(xmlhttp.readyState == 4 && xmlhttp.status == 404){
+                    if(xmlHttp.readyState == 4 && xmlHttp.status == 404){
                         // Realizar testes posteriormente
                     }
                 }
 
-                xmlhttp.send()
+                xmlHttp.send()
             }
         </script>
     </head>
@@ -47,12 +103,13 @@
             </div>
         </nav>
 
-        <div class="container">
-            <div class="row">
+        <div class="container" id="lista">
+            <div class="row mb-5">
                 <div class="col">
                     <button type="button" class="btn btn-success" onclick="getFilmes()"> Listar filmes </button>
                 </div>
             </div>
+
         </div>
 
     </body>
