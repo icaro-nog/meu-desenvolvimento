@@ -20,3 +20,28 @@ insert into tb_usuarios(
 
 /* Remoção de todos os dados de tb_usuarios */
 delete from tb_usuarios
+
+/* Inserção de dados em tb_usuarios */
+$query = "
+insert into tb_usuarios(
+    nome, email, senha
+) values (
+    'Ícaro Lemos', 'icaro@teste.com.br', '123456'
+)";
+$conexao->exec($query);
+
+$query = "
+insert into tb_usuarios(
+    nome, email, senha
+) values (
+    'Gabriel Nogueira', 'gabriel@teste.com.br', '789101112'
+)";
+$conexao->exec($query);
+
+$query = "
+insert into tb_usuarios(
+    nome, email, senha
+) values (
+    'Maria Silva', 'maria@teste.com.br', '456789'
+)";
+$conexao->exec($query);
