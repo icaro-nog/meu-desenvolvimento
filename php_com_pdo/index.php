@@ -1,53 +1,56 @@
 <?php
 
-    $dsn = "mysql:host=localhost; dbname=php_com_pdo";
-    $usuario = "root";
-    $senha = "";
+    if(!empty($_POST["usuario"]) && !empty($_POST["senha"])){
 
-    try{
-        $conexao = new PDO($dsn, $usuario, $senha);
+        $dsn = "mysql:host=localhost; dbname=php_com_pdo";
+        $usuario = "root";
+        $senha = "";
 
-        $query = "
-            select * from tb_usuarios
-        ";
+        try{
+            $conexao = new PDO($dsn, $usuario, $senha);
 
-        //$stmt = $conexao->query($query);
-        /* fetch(): Retorna uma unica row da consulta, ideal para poder utilizar em consultas como login, que retorna somente um resultado.
-        fetchAll(): Retorna um array com todas as linhas da consulta, ideal para uma busca por nome ou por endereço. */
-        // PDO::FETCH_NUM - Retorna apenas índices númericos do array
-        // PDO::FETCH_ASSOC - Retorna apenas índices associativos do array
-        // PDO::FETCH_BOTH - Retorna ambos
-        // PDO::FETCH_OBJ - Retorna o array em formato de objeto, sendo necessário acessá-lo com ->
-        //$lista_usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $query = "select * from tb_usuarios where";
+            // {} para passagem de bloco de código PHP em query SQL
+            // .= para concatenar a varíavel 
+            $query .= " email = '{$_POST['usuario']}' ";
+            $query .= " AND senha = '{$_POST["senha"]}' ";
 
-        /*
-        echo "<pre>";
-        print_r($lista_usuarios);
-        echo "</pre>";
-        */
+            echo $query;
 
-        // Retornando índices do array de fetchAll
-        //echo $lista[6]->nome;
-
-        // Listar registros com foreach
-        foreach($conexao->query($query) as $key => $value){
-
-            //Value para acessar o valor de cada key de array
-            print_r($value[3]);
+            $stmt = $conexao->query($query);
+            $usuario = $stmt->fetch();
             echo "<hr>";
+            
+            echo "<pre>";
+            print_r($usuario);
+            echo "</pre>";
+
+        }catch(PDOException $e){
+            
+            echo "Erro: ".$e->getCode(). " Mensagem: ".$e->getMessage();
         }
 
-        /*
-        foreach($lista_usuarios as $key => $value){
-
-            echo $value["nome"];
-            echo "<hr>";
-        }
-        */
-
-    }catch(PDOException $e){
-        
-        echo "Erro: ".$e->getCode(). " Mensagem: ".$e->getMessage();
     }
 
 ?>
+
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Login</title>
+    </head>
+
+    <body>
+
+    <form method="post" action="index.php">
+        <input type="text" placeholder="Usuário" name="usuario">
+        <br>
+        <input type="password" placeholder="Senha" name="senha">
+        <br>
+
+        <button type="submit"> Entrar </button>
+    </form>
+
+    </body>
+</html>
