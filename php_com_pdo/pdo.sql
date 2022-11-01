@@ -45,3 +45,8 @@ insert into tb_usuarios(
     'Maria Silva', 'maria@teste.com.br', '456789'
 )";
 $conexao->exec($query);
+
+
+/* Instrução submetida por meio do formulário para deletar toda a tabela tb_usuarios */
+-- usuario: icaro@teste.com.br
+-- senha: 123456'; delete from tb_usuarios where 'a' = 'a
