@@ -50,3 +50,13 @@ $conexao->exec($query);
 /* Instrução submetida por meio do formulário para deletar toda a tabela tb_usuarios */
 -- usuario: icaro@teste.com.br
 -- senha: 123456'; delete from tb_usuarios where 'a' = 'a
+
+/* Inserção de novos usuários */
+$query = "insert into tb_usuarios(nome, email, senha)values('Ícaro Nogueira', 'icaro@teste.com.br', '1234')";
+$conexao->query($query);
+
+$query = "insert into tb_usuarios(nome, email, senha)values('Gabriel Nogueira', 'gabriel@teste.com.br', '4567')";
+$conexao->query($query);
+
+$query = "insert into tb_usuarios(nome, email, senha)values('Vanessa Carter', 'vanessa@teste.com.br', '1234')";
+$conexao->query($query);
