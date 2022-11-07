@@ -1,3 +1,12 @@
+<?php
+
+	// Se clicar em Todas as Tarefas, a $acao será setada como "recuperar"
+	$acao = "recuperar";
+	require "tarefa_controller.php";
+
+?>
+
+
 <html>
 	<head>
 		<meta charset="utf-8" />
