@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <!-- jQuery local -->
+    <!-- <script src="jquery-3.6.1.min.js"></script> -->
+    <!-- jQuery via CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <style>
+        #div1{
+            width: 80px;
+            height: 80px;
+            border: solid 1px black;
+        }
+
+        .emDestaque{
+            background-color: red;
+        }
+    </style>
+
+    <script>
+        
+        $(document).ready(() => {
+
+            $("#btn2").on("click", () => {
+
+                alert("BTN 2 clicado")
+            })
+
+            $("#btn1").on("click", () => {
+
+                // Startando o evento de click no botão 2 de forma programática
+                $("#btn2").trigger("click")
+            })
+
+            // Captura de evento de deslize do mouse sobre o elemento, resume o mouseenter e mouseleave
+            $("#div1").hover(
+
+                (e) => {$(e.target).addClass("emDestaque")}, 
+                (e) => {$(e.target).removeClass("emDestaque")}
+            )
+
+            /*
+            $("#div1").on("mouseenter", e => {
+                $(e.target).addClass("emDestaque")
+            })
+
+            $("#div1").on("mouseleave", e => {
+                $(e.target).removeClass("emDestaque")
+            })
+            */
+
+            // Captura de evento de deslize do mouse sobre o elemento, resume o mouseenter e mouseleave
+            $("#div1").hover(
+
+                // toggleClass alterna entre addClass e removeClass
+                (e) => {$(e.target).toggleClass("emDestaque")}
+            )
+
+        })        
+    
+    </script>
+
+    <title>Hello, world!</title>
+
+  </head>
+  <body>
+
+    <button id="btn1" type="button">BTN 1</button>
+    <button id="btn2" type="button">BTN 2</button>
+
+    <hr>
+
+    <div id="div1"></div>
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+  </body>
+</html>
