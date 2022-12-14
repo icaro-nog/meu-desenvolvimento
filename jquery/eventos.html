@@ -17,6 +17,12 @@
 				width: 80px;
 				height: 80px;
 			}
+
+			.inputFocado {
+
+				background-color: red;
+
+			}
 		</style>
 
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -114,6 +120,76 @@
 					console.log("div Interna (saiu)")
 				})
 				
+				// Evento de pressão da tecla
+				$("#teclado").keydown((e) => {
+					// Permitir a o dígito apenas se for do 1 ao 4
+					if(e.keyCode < 97 || e.keyCode > 100){
+						// Valor inserido no input
+						let txt = $(e.target).val()
+						
+						txt = txt.slice(0, -1)
+
+						$(e.target).val(txt)
+					}
+					//console.log(e.keyCode)
+				})
+				
+				
+
+				/*
+				// Evento de liberação da tecla
+				$("#teclado").keyup((e) => {
+
+					$("#resultadoTecla").html("tecla liberada")
+					if(e.keyCode == 13){
+						// Valor inserido no input
+						let txt = $(e.target).val()
+
+						// Escrevendo o valor na tag
+						$("#resultadoTecla").html(txt)
+
+						// Escrever "" no input
+						$(e.target).val("")
+					}
+					
+				})
+				*/
+				
+				// Evento de foco sobre o input nome e email
+				$("#nome, #email").focus((e) => {
+
+					console.log("Esse elemento HTML recebeu o foco (nome e email)")
+					// Alvo que foi focado (inputs)
+					$(e.target).addClass("inputFocado")
+				})
+
+				// Evento de perder o foco sobre o input nome e email
+				$("#nome, #email").blur((e) => {
+
+					console.log("Esse elemento HTML perdeu o foco (nome e email)")
+					// Alvo que foi focado (inputs)
+					$(e.target).removeClass("inputFocado")
+				})
+
+				// Evento de mudança do select
+				$("#opcao").change(() => {
+
+					console.log($("#opcao").val())
+
+				})
+
+				// Evento de envio do formulário
+				$("#form").submit((e) => {
+					// preventDefault para evitar o envio do formulário
+					e.preventDefault()
+					console.log("Formulário enviado")
+				})
+
+				// preventDefault para evitar o redirecionamento do link
+				$("a").click(e => {
+
+					e.preventDefault()
+				})
 			
 			})
 		</script>
@@ -151,27 +227,30 @@
 
 			<h3>Teclado</h3>
 			<span>Nome:</span>
-			<input type="text" />
-			<span>Resultado do evento sobre o input</span>
+			<input type="text" id="teclado"/>
+			<span id="resultadoTecla">Resultado do evento sobre o input</span>
 			<hr />
 
 			<h3>Formulário</h3>
-			<form>
+			<form id="form">
 				<span>Nome:</span>
-				<input type="text" />
+				<input type="text" id="nome"/>
 
 				<span>E-mail:</span>
-				<input type="text" />
+				<input type="text" id="email"/>
 
 				<span>Motivo do contato:</span>
-				<select>
+				<select id="opcao">
 					<option value="">-- Selecione --</option>
 					<option value="duvida">Dúvida</option>
 					<option value="sugestao">Sugestão</option>
 				</select>
 				
-				<button type="button">Enviar</button>
+				<button type="submit">Enviar</button>
 			</form>
+
+			<br>
+			<a href="http://www.google.com.br">Google</a>
 		</div>
 	</body>
 
