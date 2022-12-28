@@ -50,8 +50,9 @@ $(document).ready(() => {
                 // Sobrescrevendo conteúdo interno das tags com os dados em json, recebidos do back-end pela requisição
                 $("#numeroVendas").html(dados.numeroVendas)
                 $("#totalVendas").html(dados.totalVendas)
+                $("#totalDespesas").html(dados.totalDespesas)
 
-                console.log(dados.numeroVendas, dados.totalVendas)
+                console.log(dados)
             },
             error: erro => {
                 // capturando erro e exibindo-o no console
@@ -61,4 +62,30 @@ $(document).ready(() => {
 
         
     })
+
+    // Requisição Ajax no modelo jQuery
+    $.ajax({
+        // Método, url, dados que serão enviados para o back-end, tipo de dados esperado pelo front-end("json"), tratamento de sucesso, tratamento de erro
+        type: "GET",
+        url: "app_dados.php",
+        dataType: "json",
+        success: dados => {
+            // Sobrescrevendo conteúdo interno das tags com os dados em json, recebidos do back-end pela requisição
+            $("#clientesAtivos").html(dados.clientesAtivos)
+            $("#clientesInativos").html(dados.clientesInativos)
+            $("#totalReclamacoes").html(dados.totalReclamacoes)
+            $("#totalElogios").html(dados.totalElogios)
+            $("#totalSugestoes").html(dados.totalSugestoes)
+
+            console.log(dados.clientesAtivos)
+            console.log(dados.clientesInativos)
+            console.log(dados.totalReclamacoes)
+            console.log(dados.totalElogios)
+        },
+        error: erro => {
+            // capturando erro e exibindo-o no console
+            console.log(erro)
+        },
+    }) 
+
 })
