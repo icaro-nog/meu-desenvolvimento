@@ -1,0 +1,17 @@
+{
+    "require": {
+    "php": ">= 7.0"
+    },
+    "authors": [
+        {
+            "name": "Ícaro Lemos Leal Nogueira",
+            "email": "icarolemosleal@outlook.com.br"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/",
+            "MF\\": "vendor/MF/"
+        }
+    }
+}
