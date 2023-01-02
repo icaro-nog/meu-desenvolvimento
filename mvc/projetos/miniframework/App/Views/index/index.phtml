@@ -4,7 +4,14 @@
 <?php
     //echo "Chegamos ao IndexController e disparamos a action index";
 
-    foreach($this->view->dados as $indice => $valor){
-        echo $valor."<br>";
+    /*
+    echo "<pre>";
+    print_r($this->view->dados);
+    echo "</pre>";
+    */
+
+    foreach($this->view->dados as $indice => $produto){
+        echo $produto["id"]. " - " .$produto["descricao"]. " - " .$produto["preco"];
+        echo "<br>";
     }
 ?>
