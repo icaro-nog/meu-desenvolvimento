@@ -3,8 +3,17 @@
 
 <?php
     //echo "Chegamos ao IndexController e disparamos a action sobreNos <br>";
-
-    foreach($this->view->dados as $indice => $valor){
-        echo $valor."<br>";
-    }
+    /*
+    echo "<pre>";
+    print_r($this->view->dados);
+    echo "</pre>";
+    */
+    foreach($this->view->dados as $indice => $info){
 ?>
+
+<h1><?php echo $info["titulo"] ?></h1>
+<br>
+    <?php echo $info["descricao"] ?>
+<hr>
+
+<?php } ?>
