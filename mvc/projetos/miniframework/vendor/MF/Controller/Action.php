@@ -17,7 +17,7 @@
             // Ajustar o contexto do parâmetro $view
             $this->view->page = $view;
 
-            // Se o arquivo solicitado existir, exibir ele na página, senão, exibir apenas o conteúdo que já está carregado nela
+            // Se o LAYOUT solicitado existir, exibir ele na página, senão, exibir apenas o conteúdo que já está carregado nela
             if(file_exists("../App/Views/".$layout.".phtml")){
                 require_once "../App/Views/".$layout.".phtml";
             }else{
@@ -27,6 +27,7 @@
             
         }
 
+        // Exibição de conteúdo na página
         protected function content() {
 
             $classAtual = get_class($this);
@@ -35,7 +36,7 @@
 
             $classAtual = strToLower(str_replace("Controller", "", $classAtual));
 
-            //echo $classAtual;
+            //echo $classAtual . $this->view->page;
 
             require_once "../App/Views/".$classAtual."/".$this->view->page.".phtml";
         }
