@@ -2,16 +2,11 @@
 
     namespace App\Models;
 
-    // PHP não estava utilizando classes nativas, uses foram inseridos para corrigir este erro
-    use PDO;
+    // Classe de conexão ao banco de dados
+    use MF\Model\Model;
 
-    class Info {
-
-        protected $db;
-
-        public function __construct(PDO $db) {
-            $this->db = $db;
-        }
+    // Classe de modelo de query
+    class Info extends Model {
 
         public function getInfo() {
             
