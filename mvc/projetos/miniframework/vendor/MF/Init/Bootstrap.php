@@ -3,6 +3,7 @@
     // Namespace para não haver conflito entre criação de classes em Route.php está sendo usado como use MF/Init/Bootstrap;
     namespace MF\Init;
 
+    // Classe para fazer captura de url e inicialização de rotas
     abstract class Bootstrap {
 
         private $routes;
