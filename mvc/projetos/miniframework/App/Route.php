@@ -5,6 +5,7 @@
 
     use MF\Init\Bootstrap;
 
+    // Definição de rotas para posterior tratamento em MF\Init\Bootstrap
     class Route extends Bootstrap{
 
         public function initRoutes() {
