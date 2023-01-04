@@ -27,6 +27,7 @@ abstract class Action {
 
 		$classAtual = strtolower(str_replace('Controller', '', $classAtual));
 
+		// Com esse require, o content da página é exibido -> nesse caso: index.phtml ou inscreverse.phtml
 		require_once "../App/Views/".$classAtual."/".$this->view->page.".phtml";
 	}
 }
