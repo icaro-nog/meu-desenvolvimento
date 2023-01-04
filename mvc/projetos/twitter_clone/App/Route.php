@@ -10,14 +10,23 @@ class Route extends Bootstrap {
 
 		$routes['home'] = array(
 			'route' => '/',
+			// Ação de IndexController.php
 			'controller' => 'indexController',
 			'action' => 'index'
 		);
 
 		$routes['inscreverse'] = array(
 			'route' => '/inscreverse',
+			// Ação de IndexController.php
 			'controller' => 'indexController',
 			'action' => 'inscreverse'
+		);
+
+		$routes['registrar'] = array(
+			'route' => '/registrar',
+			// Ação de IndexController.php
+			'controller' => 'indexController',
+			'action' => 'registrar'
 		);
 
 		$this->setRoutes($routes);
