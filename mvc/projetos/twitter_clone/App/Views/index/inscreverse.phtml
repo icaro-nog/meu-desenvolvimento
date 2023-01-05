@@ -18,23 +18,36 @@
             
             <form action="/registrar" method="post">
               <div class="form-group">
-                <input type="text" name="nome" class="form-control" placeholder="Nome">
+                <input type="text" name="nome" class="form-control" value="<?php echo $this->view->usuario['nome']; ?>" placeholder="Nome">
               </div>
               
               <div class="form-group">
-                <input type="text" name="email" class="form-control" placeholder="E-mail">
+                <input type="text" name="email" class="form-control" value="<?php echo $this->view->usuario['email']; ?>" placeholder="E-mail">
               </div>
 
               <div class="form-group">
-                <input type="password" name="senha" class="form-control" placeholder="Senha">
+                <input type="password" name="senha" class="form-control" value="<?php echo $this->view->usuario['senha']; ?>" placeholder="Senha">
               </div>
-              
+
               <div class="mt-4 mb-4">
                 <small class="form-text">
                   Ao inscrever-se, você concorda com os Termos de Serviço e com as Políticas de Privacidade, incluindo o Uso de Cookies. Outras pessoas poderão encontrar você pelo e-mail ou número de telefone fornecido · Opções de Privacidade
                 </small>
               </div>
               <button type="submit" class="btn btn-primary btn-block">Inscrever-se</button>
+
+              <?php
+                if($this->view->erroCadastro == 1){
+              ?>
+
+                  <small class="form-text text-danger"> *Erro ao tentar realizar o cadastro, o e-mail inserido já está sendo utilizado! </small>
+
+              <?php } else if($this->view->erroCadastro == 2){ ?>
+                
+                  <small class="form-text text-danger"> *Erro ao tentar realizar o cadastro, verifique se os campos foram preenchidos corretamente! </small>
+              
+              <?php } ?>
+
             </form>
 
           </div>
