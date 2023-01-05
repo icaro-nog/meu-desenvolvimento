@@ -65,6 +65,32 @@
 
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         }
+        
+        public function autenticarUsuario(){
+
+            // Veriricação no banco de dados se e-mail e senha forem válidos
+            $query = "select id, nome, email from usuarios where email = :email and senha = :senha";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(":email", $this->__get("email"));
+            $stmt->bindValue(":senha", $this->__get("senha"));
+            $stmt->execute();
+
+            // fetch(): Retorna uma unica linha do banco de dados, ideal para consultas de login
+            $usuario = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+            // Setar id e nome se o e-mail e senha forem validos
+            if($usuario["id"] != "" && $usuario["nome"] != ""){
+
+                $this->__set("id", $usuario["id"]);
+                $this->__set("nome", $usuario["nome"]);
+
+            }
+
+            // Retornar o próprio objeto -> $usuario
+            return $this;
+            
+        }
+        
 
     }
 
