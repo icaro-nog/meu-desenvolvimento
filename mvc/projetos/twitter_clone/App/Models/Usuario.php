@@ -36,7 +36,6 @@
         }
 
         // Validar se um cadastro pode ser feito
-        // Inserir mais validações posteriormente
         public function validarCadastro(){
             $valido = true;
 
@@ -89,6 +88,19 @@
             // Retornar o próprio objeto -> $usuario
             return $this;
             
+        }
+
+        public function getUsuarios() {
+            // Like para a pesquisa ser baseada em qualquer conjunto de caracteres retornados, inclusive próximos ao conjunto pesquisado
+            $query = "select id, nome, email from usuarios where nome like :nome";
+
+            $stmt = $this->db->prepare($query);
+            // % para funcionar corretamente a pesquisa com o like
+            $stmt->bindValue(":nome", "%".$this->__get("nome")."%");
+            $stmt->execute();
+
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+                         
         }
         
 
