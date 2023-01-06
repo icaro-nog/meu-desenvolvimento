@@ -34,7 +34,7 @@ class IndexController extends Action {
 		// Instanciar modelo de usuário e conexão com o banco de dados
 		$usuario = Container::getModel("Usuario");
 
-		// Receber dados do formulário e setá-los em Usuario.php
+		// Receber dados do formulário e setá-los em Models/Usuario.php
 		$usuario->__set("nome", $_POST["nome"]);
 		$usuario->__set("email", $_POST["email"]);
 		$usuario->__set("senha", md5($_POST["senha"])); // md5 para transformar a senha em um hash de 32 caracteres
