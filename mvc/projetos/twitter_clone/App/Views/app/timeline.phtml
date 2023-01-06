@@ -27,7 +27,7 @@
 					
 					<div class="row mt-2 mb-2">
 						<div class="col mb-2">
-							<span class="perfilPainelNome">Nome do Usuário</span>
+							<span class="perfilPainelNome"><?php echo $_SESSION["nome"]; ?></span>
 						</div>
 					</div>
 
@@ -35,7 +35,7 @@
 
 						<div class="col">
 							<span class="perfilPainelItem">Tweets</span><br />
-							<span class="perfilPainelItemValor">0</span>
+							<span class="perfilPainelItemValor"><?php echo $this->view->contagemTweets ?></span>
 						</div>
 
 						<div class="col">
@@ -58,8 +58,8 @@
 		<div class="col-md-6">
 			<div class="row mb-2">
 				<div class="col tweetBox">
-					<form>
-						<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+					<form action="/tweet" method="post">
+						<textarea name="tweet" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 						
 						<div class="col mt-2 d-flex justify-content-end">
 							<button type="submit" class="btn btn-primary">Tweet</button>
@@ -69,34 +69,23 @@
 				</div>
 			</div>
 
-			<div class="row tweet">
-				<div class="col">
-					<p><strong>Nome do Usuário</strong> <span class="text text-muted">- data tweet</span></p>
-					<p>Conteúdo do tweet</p>
+			<?php 
+				foreach ($this->view->tweets as $dados => $tweet) { 
+			?>
+				<div class="row tweet">
+					<div class="col">
+						<p><strong> <?php echo $tweet["nome"] ?> </strong> <smal><span class="text text-muted"><?php echo $tweet["data"] ?></span></smal> </p>
+						<p> <?php echo $tweet["tweet"] ?> </p>
 
-					<br />
-					<form>
-						<div class="col d-flex justify-content-end">
-							<button type="submit" class="btn btn-danger"><small>Remover</small></button>
-						</div>
-					</form>
+						<br />
+						<form>
+							<div class="col d-flex justify-content-end">
+								<button type="submit" class="btn btn-danger"><small>Remover</small></button>
+							</div>
+						</form>
+					</div>
 				</div>
-			</div>
-
-			<div class="row tweet">
-				<div class="col">
-					<p><strong>Nome do Usuário</strong> <span class="text text-muted">- data tweet</span></p>
-					<p>Conteúdo do tweet</p>
-
-					<br />
-					<form>
-						<div class="col d-flex justify-content-end">
-							<button type="submit" class="btn btn-danger"><small>Remover</small></button>
-						</div>
-					</form>		
-				</div>
-			</div>
-
+			<?php } ?>
 
 		</div>
 
@@ -105,7 +94,7 @@
 			<div class="quemSeguir">
 				<span class="quemSeguirTitulo">Quem seguir</span><br />
 				<hr />
-				<a href="#" class="quemSeguirTxt">Procurar por pessoas conhecidas</a>
+				<a href="/quem_seguir" class="quemSeguirTxt">Procurar por pessoas conhecidas</a>
 			</div>
 		</div>
 
