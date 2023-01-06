@@ -50,11 +50,18 @@ class Route extends Bootstrap {
 			'action' => 'sair'
 		);
 
-		$routes['sair'] = array(
-			'route' => '/sair',
-			// Ação de AuthController.php
-			'controller' => 'AuthController', // Esta rota ficou em AuthController, pois se trata de um processo que envolve o login
-			'action' => 'sair'
+		$routes['tweet'] = array(
+			'route' => '/tweet',
+			// Ação de AppController.php
+			'controller' => 'AppController',
+			'action' => 'tweet'
+		);
+
+		$routes['quem_seguir'] = array(
+			'route' => '/quem_seguir',
+			// Ação de AppController.php
+			'controller' => 'AppController',
+			'action' => 'quemSeguir'
 		);
 
 		$this->setRoutes($routes);
