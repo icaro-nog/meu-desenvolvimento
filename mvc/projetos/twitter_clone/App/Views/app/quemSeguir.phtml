@@ -86,8 +86,14 @@
 								
 									<div class="col-md-6 d-flex justify-content-end">
 										<div>
-											<a href="#" class="btn btn-success">Seguir</a>
-											<a href="#" class="btn btn-danger">Deixar de seguir</a>
+											<!-- Exibir botões de seguir de acordo com a condição -->
+											<?php if($usuario["seguindo_sn"] == 0){ ?>
+											<a href="/acao?acao=seguir&id=<?php echo $usuario['id']; ?>" class="btn btn-success">Seguir</a>
+											<?php } ?>
+
+											<?php if($usuario["seguindo_sn"] == 1){ ?>
+											<a href="/acao?acao=deixar_de_seguir&id=<?php echo $usuario['id']; ?>" class="btn btn-danger">Deixar de seguir</a>
+											<?php } ?>
 										</div>
 									</div>
 								</div>
