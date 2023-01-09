@@ -67,7 +67,7 @@
         
         public function autenticarUsuario(){
 
-            // Veriricação no banco de dados se e-mail e senha forem válidos
+            // Verificação no banco de dados se e-mail e senha forem válidos
             $query = "select id, nome, email from usuarios where email = :email and senha = :senha";
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(":email", $this->__get("email"));
@@ -92,17 +92,46 @@
 
         public function getUsuarios() {
             // Like para a pesquisa ser baseada em qualquer conjunto de caracteres retornados, inclusive próximos ao conjunto pesquisado
-            $query = "select id, nome, email from usuarios where nome like :nome";
+            // (select count(*) from usuarios_seguidores as us where us.id_usuario = :id_usuario and us.id_usuario_seguindo = u.id) para contar se usuario listado na pesquisa está sendo seguido pelo id do usuário da sessão, se sim seguindo_sn = 1
+            // É uma subconsulta
+            $query = "select u.id, u.nome, u.email, (select count(*) from usuarios_seguidores as us where us.id_usuario = :id_usuario and us.id_usuario_seguindo = u.id) as seguindo_sn from usuarios as u where u.nome like :nome and u.id != :id_usuario"; // and id != :id_usuario para o usuário não poder seguir ele mesmo
 
             $stmt = $this->db->prepare($query);
             // % para funcionar corretamente a pesquisa com o like
             $stmt->bindValue(":nome", "%".$this->__get("nome")."%");
+            $stmt->bindValue(":id_usuario", $this->__get("id"));
             $stmt->execute();
 
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
                          
         }
+
+
+        public function seguirUsuario($id_usuario_seguindo){
+
+            $query = "insert into usuarios_seguidores(id_usuario, id_usuario_seguindo) values(:id_usuario, :id_usuario_seguindo)";
+
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(":id_usuario", $this->__get("id"));
+            $stmt->bindValue(":id_usuario_seguindo", $_GET["id"]);
+            $stmt->execute();
+
+            // Retorno true para inserção ser feita no banco de dados
+            return true;
+        }
         
+        public function deixarSeguir($id_usuario_seguindo){
+
+            $query = "delete from usuarios_seguidores where id_usuario = :id_usuario and id_usuario_seguindo = :id_usuario_seguindo";
+
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(":id_usuario", $this->__get("id"));
+            $stmt->bindValue(":id_usuario_seguindo", $_GET["id"]);
+            $stmt->execute();
+
+            // Retorno true para inserção ser feita no banco de dados
+            return true;
+        }
 
     }
 
