@@ -25,6 +25,8 @@ class AppController extends Action {
         $this->view->tweets = $tweets;
 
         $this->contagemTweets();
+        $this->contagemSeguindo();
+        $this->contagemSeguidores();
 
         $this->render("timeline");
         /*
@@ -90,6 +92,8 @@ class AppController extends Action {
         $this->view->usuarios = $usuarios;
 
         $this->contagemTweets();
+        $this->contagemSeguindo();
+        $this->contagemSeguidores();
 
         $this->render("quemSeguir");
     }
@@ -100,14 +104,12 @@ class AppController extends Action {
         // Instanciar modelo de Tweet e conexão com o banco de dados
         $tweet = Container::getModel("Tweet");
 
-        // Setando o id_usuario em getTweets()
+        // Setando o id_usuario em contarTweets()
         $tweet->__set("id_usuario", $_SESSION["id"]);
-        
-        $tweet->getTweets();
 
-        // Contar tweets
-        $contagemTweets = count($tweet->getTweets());
-        $this->view->contagemTweets = $contagemTweets;
+        $contagemTweets = $tweet->contarTweets();
+
+        $this->view->contagemTweets = $contagemTweets["TweetsUsuario"];
 
     }
 
@@ -150,6 +152,36 @@ class AppController extends Action {
         $tweet->remover();
 
         header("location: /timeline");
+
+    }
+
+    // Contar seguindo
+    public function contagemSeguindo() {
+
+        // Instanciar modelo de Usuario e conexão com o banco de dados
+        $usuario = Container::getModel("Usuario");
+
+        // Setando o id_usuario em contarSeguidores()
+        $usuario->__set("id_usuario", $_SESSION["id"]);
+        
+        $contagemSeguindo = $usuario->contarSeguindo();
+        
+        $this->view->contagemSeguindo = $contagemSeguindo["total_seguindo"];        
+
+    }
+
+    // Contar seguidores
+    public function contagemSeguidores() {
+
+        // Instanciar modelo de Usuario e conexão com o banco de dados
+        $usuario = Container::getModel("Usuario");
+
+        // Setando o id_usuario em contarSeguidores()
+        $usuario->__set("id_usuario", $_SESSION["id"]);
+        
+        $contagemSeguidores = $usuario->contarSeguidores();
+        
+        $this->view->contagemSeguidores = $contagemSeguidores["total_seguidores"];                
 
     }
 
