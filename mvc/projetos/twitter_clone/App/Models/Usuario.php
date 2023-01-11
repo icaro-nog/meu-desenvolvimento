@@ -23,7 +23,7 @@
         // Query para salvar dados
         public function salvar(){
 
-            $query = "insert into usuarios(nome, email, senha) values(:nome, :email, :senha)";
+            $query = "INSERT INTO usuarios(nome, email, senha) VALUES(:nome, :email, :senha)";
             // $this->db está vindo da extensão da classe Model
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(":nome", $this->__get("nome"));
@@ -57,7 +57,7 @@
         // Recuperar um usuário por e-mail
         public function getUsuarioPorEmail(){
 
-            $query = "select nome, email from usuarios where email = :email";
+            $query = "SELECT nome, email FROM usuarios WHERE email = :email";
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(":email", $this->__get("email"));
             $stmt->execute();
@@ -68,7 +68,7 @@
         public function autenticarUsuario(){
 
             // Verificação no banco de dados se e-mail e senha forem válidos
-            $query = "select id, nome, email from usuarios where email = :email and senha = :senha";
+            $query = "SELECT id, nome, email FROM usuarios WHERE email = :email AND senha = :senha";
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(":email", $this->__get("email"));
             $stmt->bindValue(":senha", $this->__get("senha"));
@@ -94,7 +94,7 @@
             // Like para a pesquisa ser baseada em qualquer conjunto de caracteres retornados, inclusive próximos ao conjunto pesquisado
             // (select count(*) from usuarios_seguidores as us where us.id_usuario = :id_usuario and us.id_usuario_seguindo = u.id) para contar se usuario listado na pesquisa está sendo seguido pelo id do usuário da sessão, se sim seguindo_sn = 1
             // É uma subconsulta
-            $query = "select u.id, u.nome, u.email, (select count(*) from usuarios_seguidores as us where us.id_usuario = :id_usuario and us.id_usuario_seguindo = u.id) as seguindo_sn from usuarios as u where u.nome like :nome and u.id != :id_usuario"; // and id != :id_usuario para o usuário não poder seguir ele mesmo
+            $query = "SELECT u.id, u.nome, u.email, (SELECT COUNT(*) FROM usuarios_seguidores AS us WHERE us.id_usuario = :id_usuario AND us.id_usuario_seguindo = u.id) AS seguindo_sn FROM usuarios AS u WHERE u.nome LIKE :nome AND u.id != :id_usuario"; // and id != :id_usuario para o usuário não poder seguir ele mesmo
 
             $stmt = $this->db->prepare($query);
             // % para funcionar corretamente a pesquisa com o like
@@ -109,7 +109,7 @@
 
         public function seguirUsuario($id_usuario_seguindo){
 
-            $query = "insert into usuarios_seguidores(id_usuario, id_usuario_seguindo) values(:id_usuario, :id_usuario_seguindo)";
+            $query = "INSERT INTO usuarios_seguidores(id_usuario, id_usuario_seguindo) VALUES(:id_usuario, :id_usuario_seguindo)";
 
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(":id_usuario", $this->__get("id"));
@@ -122,7 +122,7 @@
         
         public function deixarSeguir($id_usuario_seguindo){
 
-            $query = "delete from usuarios_seguidores where id_usuario = :id_usuario and id_usuario_seguindo = :id_usuario_seguindo";
+            $query = "DELETE FROM usuarios_seguidores WHERE id_usuario = :id_usuario AND id_usuario_seguindo = :id_usuario_seguindo";
 
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(":id_usuario", $this->__get("id"));
@@ -131,6 +131,28 @@
 
             // Retorno true para inserção ser feita no banco de dados
             return true;
+        }
+
+        // Total de usuários que estamos seguindo
+        public function contarSeguindo(){
+            // Contagem de acordo com o id da sessão
+            $query = "SELECT COUNT(*) AS total_seguindo FROM usuarios_seguidores WHERE id_usuario = :id_usuario";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(":id_usuario", $this->__get("id_usuario"));
+            $stmt->execute();
+
+            return $stmt->fetch(\PDO::FETCH_ASSOC);
+        }
+
+        // Total de usuários que estão me seguindo
+        public function contarSeguidores(){
+            // Contagem de acordo com o id da sessão
+            $query = "SELECT COUNT(*) AS total_seguidores FROM usuarios_seguidores WHERE id_usuario_seguindo = :id_usuario";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(":id_usuario", $this->__get("id_usuario"));
+            $stmt->execute();
+
+            return $stmt->fetch(\PDO::FETCH_ASSOC);
         }
 
     }
