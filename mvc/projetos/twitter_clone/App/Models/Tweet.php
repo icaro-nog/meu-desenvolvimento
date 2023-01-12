@@ -36,7 +36,8 @@
         }
         
 
-        // Método para recuperar tweet
+        // Método para recuperar tweet, utilizado sem paginação
+        /*
         public function getTweets(){
 
             // DATE_FORMAT(t.data, '%d/%m/%Y %H:%i') método mysql para formatar data
@@ -62,6 +63,54 @@
             $stmt->execute();
 
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        }
+        */
+
+        // Método para recuperar tweets com paginação
+        public function getPorPagina($limit, $offset){
+
+            // DATE_FORMAT(t.data, '%d/%m/%Y %H:%i') método mysql para formatar data
+            // or
+            // t.id_usuario in (select id_usuario_seguindo from usuarios_seguidores where id_usuario = :id_usuario;) para listagem de tweets de outros usuários
+            $query = "SELECT 
+                t.id, 
+                t.id_usuario, 
+                u.nome, 
+                t.tweet, 
+                DATE_FORMAT(t.data, '%d/%m/%Y %H:%i') AS data 
+             FROM 
+                tweets AS t
+                LEFT JOIN usuarios AS u ON (t.id_usuario = u.id)
+            WHERE 
+                t.id_usuario = :id_usuario
+                OR
+                t.id_usuario IN (SELECT id_usuario_seguindo FROM usuarios_seguidores WHERE id_usuario = :id_usuario) 
+            ORDER BY 
+                t.data DESC
+            LIMIT 
+                $limit
+            OFFSET
+                $offset
+            ";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(":id_usuario", $this->__get("id_usuario"));
+            $stmt->execute();
+
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        }
+
+        // Método para recuperar total de tweets
+        public function getTotalRegistro(){
+
+            $query = "SELECT 
+                    COUNT(*) AS total
+                FROM 
+                    tweets
+                ";
+            $stmt = $this->db->prepare($query);
+            $stmt->execute();
+
+            return $stmt->fetch(\PDO::FETCH_ASSOC);
         }
 
         // Método para contar tweets
