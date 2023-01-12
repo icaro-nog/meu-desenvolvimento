@@ -92,6 +92,28 @@
 				</div>
 			<?php } ?>
 
+			<div class="row">
+				<nav aria-label="...">
+					<ul class="pagination">
+						<li class="page-item">
+							<a class="page-link" href="?pagina=1" tabindex="-1">Primeira</a>
+						</li>
+						<!-- Gerar páginas de acordo com o total de páginas -->
+						<?php for($i = 1; $i <= $this->view->total_de_paginas; $i++){ ?>
+							<!-- Quando a página ativa for igual a pagina atual classe active do bootstrap -->
+							<li class="page-item <?php echo $this->view->pagina_ativa == $i ? 'active' : '' ?>">
+								<a class="page-link" href="?pagina=<?php echo $i ?>"> <?php echo $i ?> </a>
+							</li>
+						<?php } ?>
+						<li class="page-item">
+							<a class="page-link" href="?pagina=<?php echo $this->view->total_de_paginas ?>">Última</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+			<?php echo $this->view->pagina_ativa ?>
+
 		</div>
 
 
