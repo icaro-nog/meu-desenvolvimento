@@ -1,4 +1,4 @@
-# Desenvolvimento Web Completo - Udemy
+# Desenvolvimento Web Completo
 Repositório de estudos sobre:
 * HTML5
 * CSS3
