@@ -20,6 +20,10 @@ class ComposerStaticInit49a4d4be2b5fd700aa91f57a798203d2
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
         ),
+        'M' => 
+        array (
+            'MyApp\\' => 6,
+        ),
         'F' => 
         array (
             'FastRoute\\' => 10,
@@ -38,6 +42,10 @@ class ComposerStaticInit49a4d4be2b5fd700aa91f57a798203d2
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'MyApp\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/MyApp',
         ),
         'FastRoute\\' => 
         array (
