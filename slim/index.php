@@ -2,6 +2,7 @@
 
     use \Psr\Http\Message\ServerRequestInterface as Request;
     use \Psr\Http\Message\ResponseInterface as Response;
+    use Illuminate\Database\Capsule\Manager as Capsule;
 
     // Exija o autoloader do Composer em seu script PHP e você estará pronto para começar a usar o Slim
     require 'vendor/autoload.php';
@@ -11,6 +12,167 @@
             "displayErrorDetails" => true
         ]
     ]);
+
+    $container = $app->getContainer();
+    $container["db"] = function(){
+
+        /* Instância de classe */
+        $capsule = new Capsule;
+
+        /* Conexão com o banco de dados */
+        $capsule->addConnection([
+            'driver' => 'mysql',// Pode-se utilizar outros bancos de dados (Postgres, SQL Server, and SQLite)
+            'host' => 'localhost',
+            'database' => 'slim',
+            'username' => 'root',
+            'password' => '',
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => '',
+        ]);
+
+        $capsule->setAsGlobal();
+        $capsule->bootEloquent();
+
+        return $capsule;
+
+    };
+
+    /* Criação de tabela usuarios */
+    $app->get("/usuarios", function(Request $request, Response $response){
+
+        $db = $this->get("db");
+        /* 
+        $db->schema()->dropIfExists("usuarios");
+        $db->schema()->create("usuarios", function($table){
+
+            $table->increments("id");
+            $table->string("nome");
+            $table->string("email");
+            $table->timestamps();
+
+
+        });
+        */
+
+        /* Inserir registros na tabela */
+        /*
+        $db->table("usuarios")->insert([
+            "nome" => "Márcio",
+            "email" => "gabriel@outlook.com"
+        ]);
+        */        
+
+        /* Atualizar registros na tabela */
+        /*
+        $db->table("usuarios")->where("id", 1)->update([
+            "nome" => "Heisenberg",
+        ]);
+        */
+
+        /* Deletar registros da tabela */
+        /*
+        $db->table("usuarios")->where("id", 1)->delete();
+        */
+
+        /* Listar registros da tabela */
+        /*
+        $usuarios = $db->table("usuarios")->get();
+        foreach($usuarios as $usuario){
+
+            echo $usuario->nome . "<br>";
+        }
+        */        
+
+    });
+
+    $app->run();
+
+    /* 
+    Tipos de respostas
+    Cabeçalho, texto, Json, XML
+    */
+
+    /* Retornar informações de cabeçalho 
+    $app->get("/header", function(Request $request, Response $response){
+
+        $response->write("Esse é um retorno header");
+        return $response->withHeader("Allow", "PUT")
+                        ->withAddedHeader("Content-Length", 10);
+
+    });
+    */
+    /* Retornar informações em formato Json 
+    $app->get("/json", function(Request $request, Response $response){
+
+        return $response->withJson([
+            "nome" => "icaro Nogueira",
+            "endereco" => "Endereco tal.....",
+        ]);
+
+    });
+    */
+    /* Retornar informações em formato XML 
+    $app->get("/xml", function(Request $request, Response $response){
+
+        $xml = file_get_contents("arquivo");
+        $response->write($xml);
+
+        return $response->withHeader("Content-Type", "application/xml");
+
+    });
+    */    
+
+    /* Middleware 
+
+    $app->add( function($request, $response, $next){
+
+        $response->write("Início camada 1 + ");
+        //return $next($request, $response);
+        $response = $next($request, $response);// Avançando para execução das rotas /usuarios ou /postagens
+
+        $response->write(" + Fim da camada 1 ");
+        return $response;
+
+        /* Validação aqui... 
+    });
+
+    $app->add( function($request, $response, $next){
+
+        $response->write("Início camada 2 + ");
+        //return $next($request, $response);
+        $response = $next($request, $response);// Avançando para execução das rotas /usuarios ou /postagens
+
+        $response->write(" + Fim da camada 2 ");
+        return $response;
+
+        /* Validação aqui... 
+    });
+
+    */
+
+    /*
+    $app->add( function($request, $response, $next){
+
+        $response->write("Início camada 2 + ");
+        return $next($request, $response);
+
+        /* Validação aqui... 
+    });
+    
+
+    $app->get("/usuarios", function(Request $request, Response $response){
+
+        $response->write("Ação principal usuários");
+
+    });
+
+    $app->get("/postagens", function(Request $request, Response $response){
+
+        $response->write("Ação principal postagens");
+
+    });
+    */
 
     /* Container dependency injection 
     class Servico {
@@ -24,19 +186,18 @@
     });
     */
 
-    /* Container Pimple */
+    /* Container Pimple 
     $container = $app->getContainer();
     $container["Home"] = function(){
 
         return new MyApp\controllers\Home(new MyApp\View);
     };
+    */
 
 
-    /* Controllers como serviço */
+    /* Controllers como serviço 
     $app->get("/usuario", "Home:index");
-
-    $app->run();
-    
+    */    
 
     /* Padrão PSR7 
     $app->get("/postagens", function(Request $request, Response $response){
