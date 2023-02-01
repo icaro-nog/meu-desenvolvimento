@@ -12,7 +12,7 @@ Illuminate -> É o moto da base de dados do Laravel sem o Laravel
 $app->group("/api/v1", function(){
 
     // Lista produtos
-    $this->get("/produtos", function($request, $response){
+    $this->get("/produtos/lista", function($request, $response){
         
         $produtos = Produto::get();
         return $response->withJson( $produtos );
