@@ -1,0 +1,38 @@
+/* Aninhamento */
+#conteudo{
+    background: green;
+    padding: 15px;
+    h1{
+        color: black;
+    }
+    a{
+        color: red;
+        &:hover { /* Referenciando seletor pai */
+            color: yellow; 
+        }
+    }
+    
+}
+
+/* Variáveis */
+$cor-primaria: brown;
+$tamanho-titulo: 20px;
+
+h2{
+    color: $cor-primaria;
+}
+
+h3{
+    color: $cor-primaria;
+}
+
+/* Escopo de variáveis (onde ela é reconhecida) */
+$cor-padrao: red;
+#rodape{
+    $cor-padrao: pink !global;// !global faz com que a variável seja colocada em 1º
+    background-color: $cor-padrao;
+}
+
+h2{
+    color: $cor-padrao;
+}
