@@ -1,0 +1,9 @@
+{
+  "sass": {
+    "compiler": "dart-sass/1.32.12",
+    "extensions": {},
+    "syntax": "SCSS",
+    "outputStyle": "expanded"
+  },
+  "autoprefixer": false
+}
