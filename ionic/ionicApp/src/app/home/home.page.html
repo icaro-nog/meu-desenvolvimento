@@ -8,6 +8,135 @@
 
 <ion-content class="ion-padding">
 
+  <h4>Listas</h4>
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        1. Lorem ipsum dolorem sit ametLorem
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        2. Lorem ipsum dolorem sit ametLorem
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <h4>Listas com avatar</h4>
+  <ion-list>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-img src="https://source.unsplash.com/random/100x100"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        Ícaro Nogueira
+      </ion-label>  
+    </ion-item>
+    
+    <ion-item>
+      <ion-avatar>
+        <ion-img src="https://source.unsplash.com/random/100x100"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        José Mário
+      </ion-label>
+    </ion-item> 
+
+  </ion-list>
+
+  <h4>Listas slide</h4>
+  <ion-list>
+
+    <ion-item-sliding>
+      <ion-item>
+        <ion-label>
+          ícaro
+        </ion-label>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-options color="success">
+          <ion-icon slot="start" name="create"></ion-icon>
+          Alterar
+        </ion-item-options>
+        <ion-item-options color="danger">
+          <ion-icon slot="start" name="trash"></ion-icon>
+          Excluir
+        </ion-item-options>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+
+  <h4>Cartões</h4>
+  <ion-card color="danger" mode="ios">
+    <ion-img src="https://source.unsplash.com/random/400x200"></ion-img>
+
+    <ion-card-content>
+      <ion-card-title>
+        Lorem ipsum dolorem sit amet
+      </ion-card-title>
+      <p>
+        Lorem ipsum dolorem sit ametLorem ipsum dolorem sit ametLorem ipsum dolorem sit ametLorem ipsum dolorem sit ametLorem ipsum dolorem sit amet
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card color="danger" mode="md">
+    <ion-img src="https://source.unsplash.com/random/400x200"></ion-img>
+
+    <ion-card-content>
+      <ion-card-title>
+        Lorem ipsum dolorem sit amet
+      </ion-card-title>
+      <p>
+        Lorem ipsum dolorem sit ametLorem ipsum dolorem sit ametLorem ipsum dolorem sit ametLorem ipsum dolorem sit ametLorem ipsum dolorem sit amet
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <h4>Cartões com cabeçalho</h4>
+  <ion-card color="danger" mode="md">
+    <ion-card-header>
+      <ion-card-title>
+        Cabeçalho
+      </ion-card-title>
+      <ion-card-subtitle>
+        Subtitulo
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-img src="https://source.unsplash.com/random/400x200"></ion-img>
+
+    <ion-card-content>
+      <p>
+        Lorem ipsum dolorem sit ametLorem ipsum dolorem sit ametLorem ipsum dolorem sit ametLorem ipsum dolorem sit ametLorem ipsum dolorem sit amet
+      </p>
+    </ion-card-content>
+
+  </ion-card>
+
+  <h4>Cartão com listagem de itens</h4>
+  <ion-card mode="ios">
+
+    <ion-item>
+      <ion-icon slot="start" name="add"></ion-icon>
+      <ion-label href="https://google.com.br">
+        1. Lorem ipsum dolorem sit ametLorem
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon slot="start" name="star"></ion-icon>
+      <ion-label href="https://google.com.br">
+        2. Lorem ipsum dolorem sit ametLorem
+      </ion-label>
+    </ion-item>
+
+  </ion-card>
+
+  <!--
   <h1>Botões</h1>
 
   <ion-button>
@@ -18,7 +147,7 @@
     Link
   </ion-button>
 
-  <!-- Cores -->
+  <!-- Cores
   <h4>Cores</h4>
   <ion-button color="primary">
     primary
@@ -82,7 +211,7 @@
     <ion-icon slot="icon-only" name="star"></ion-icon>
   </ion-button>
   <br>
-  <!-- Link para ícones: https://ionicframework.com/docs/v3/ionicons/?__hstc=13779304.c8744a8321dc1f7c624de59b81ec728c.1675691756547.1675691756547.1675695614157.2&__hssc=13779304.3.1675695614157&__hsfp=1782981590&_gl=1*xenxu1*_ga*MjA3NTg3OTAzMS4xNjc1NjkxNzU1*_ga_REH9TJF6KF*MTY3NTY5NTYxMy4yLjEuMTY3NTY5NTczMi4wLjAuMA.. -->
+  <!-- Link para ícones: https://ionicframework.com/docs/v3/ionicons/?__hstc=13779304.c8744a8321dc1f7c624de59b81ec728c.1675691756547.1675691756547.1675695614157.2&__hssc=13779304.3.1675695614157&__hsfp=1782981590&_gl=1*xenxu1*_ga*MjA3NTg3OTAzMS4xNjc1NjkxNzU1*_ga_REH9TJF6KF*MTY3NTY5NTYxMy4yLjEuMTY3NTY5NTczMi4wLjAuMA..
   <ion-button>
     <ion-icon name="flash"></ion-icon>
   </ion-button>
@@ -92,5 +221,6 @@
   <ion-button size="large">large</ion-button>
   <ion-button>padrão</ion-button>
   <ion-button size="small">small</ion-button>
-  
+  -->
+
 </ion-content>
