@@ -8,6 +8,24 @@
 
 <ion-content class="ion-padding">
 
+  Data Binding (ligação de dados)<br>
+  {{ titulo }}
+  <h4>Property Biding</h4>
+
+  <ion-button (click)="acao()">Botão</ion-button>
+
+  <ion-item>
+    <ion-label position="floating">Seu nome:</ion-label>
+    <ion-input (input)="atualiza()"></ion-input>
+  </ion-item>
+
+  <h4>Property Biding</h4>
+  <ion-img [src]="imagemLocal"></ion-img>
+
+  <h4>String interpolation</h4>
+  
+
+  <ion-img src="{{ imagemRandomica }}"></ion-img>
 
   <!--
     
