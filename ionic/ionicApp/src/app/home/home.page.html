@@ -8,6 +8,27 @@
 
 <ion-content class="ion-padding">
 
+  <h1>Modelos</h1>
+  <ion-item>
+    <ion-label position="stacked">Digite sua pesquisa:</ion-label>
+    <ion-input [(ngModel)]="pesquisa" type="text"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="recuperar()" expand="full">Clique</ion-button>
+
+  <br>
+  {{ resultado }}
+  <br>
+
+  <h1>Navegação</h1>
+  <ion-button (click)="abrirBotoes()" expand="full">Botões</ion-button>
+  <ion-button (click)="abrirLista()" expand="full">Lista</ion-button>
+  <!-- Maneira alternativa
+    <ion-button [href]="'/botoes/'" routerDirection="forward" expand="full">Botões</ion-button>
+  -->
+
+  <!--
+
   Data Binding (ligação de dados)<br>
   {{ titulo }}
   <h4>Property Biding</h4>
@@ -27,7 +48,7 @@
 
   <ion-img src="{{ imagemRandomica }}"></ion-img>
 
-  <!--
+  
     
   <h4>Grid</h4>
   <ion-grid>
