@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'botoes',
     loadChildren: () => import('./botoes/botoes.module').then( m => m.BotoesPageModule)
   },
+  {
+    path: 'lista',
+    loadChildren: () => import('./lista/lista.module').then( m => m.ListaPageModule)
+  },
 ];
 
 @NgModule({
