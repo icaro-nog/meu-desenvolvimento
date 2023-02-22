@@ -10,40 +10,67 @@
         <script>
 
             function* conversar(){
+                // 1º Bloco de iteração
                 let opcao = yield "E ai, tudo bem?"
 
+                // 2º Bloco de iteração
                 // Recebimento do parâmetro enviado no next
-                yield "Ótimo, fico feliz!"
+                if(opcao == "sim"){
+                    yield "Ótimo, fico feliz!"
 
-                yield "Terceira etapa: " + opcao
-                yield "Quarta etapa: " + opcao
-                yield "Quinta etapa: " + opcao
+                    opcao = yield "Como posso te ajudar? Quer uma piada para começar?"
+
+                    if(opcao == "sim"){
+                        
+                        fetch("dados/piadas.json")
+                            .then(resposta => resposta.json())
+                            .then(piadas => {
+
+                                let piada = piadas[Math.floor(Math.random() * 10)]
+
+                                console.log(piada.piada)
+
+                                setTimeout(() => {
+                                    console.log(piada.resposta)
+                                    console.log("kkkkkkkkkkk, muito boaaaa!")
+
+                                }, 4000)
+                                
+                            })
+
+                            yield "Digite 1 para compras, 2 para vendas ou 3 para falar com um atendente"
+                    }else{
+                        yield "Digite 1 para compras, 2 para vendas ou 3 para falar com um atendente"
+                    }
+                }else{
+                    yield "Respire fundo e tenha paciêcia"
+
+                    yield "Digite 1 para compras, 2 para vendas ou 3 para falar com um atendente"
+                }
+
+                return "Atendimento finalizado!"
             }
 
             let conversa = conversar() // Objeto iterator
 
             function acao(){
-                let iteracao = conversa.next() // Indo até console.log(opcao)
+
+                let resposta = document.getElementById("resposta").value
+
+                let iteracao = conversa.next(resposta)
                 console.log(iteracao)
 
-                iteracao = conversa.next("Sim") // Indo até yield "Ótimo, fico feliz!" e let opcao = "Sim"
-                console.log(iteracao)
+                if(iteracao.done) {
 
-                iteracao = conversa.next() //
-                console.log(iteracao)
-
-                iteracao = conversa.next() //
-                console.log(iteracao)
-
-                iteracao = conversa.next() //
-                console.log(iteracao)
-
+                    document.getElementById("teste").style.display = "none"
+                }
             }
 
         </script>
 
         <div id="teste">
             <button type="button" onclick="acao()">Avançar</button>
+            Resposta: <input type="text" id="resposta">
         </div>
 </body>
 </html>
