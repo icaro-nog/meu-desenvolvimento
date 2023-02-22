@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <script>
+
+            function* conversar(){
+                let opcao = yield "E ai, tudo bem?"
+
+                // Recebimento do parâmetro enviado no next
+                yield "Ótimo, fico feliz!"
+
+                yield "Terceira etapa: " + opcao
+                yield "Quarta etapa: " + opcao
+                yield "Quinta etapa: " + opcao
+            }
+
+            let conversa = conversar() // Objeto iterator
+
+            function acao(){
+                let iteracao = conversa.next() // Indo até console.log(opcao)
+                console.log(iteracao)
+
+                iteracao = conversa.next("Sim") // Indo até yield "Ótimo, fico feliz!" e let opcao = "Sim"
+                console.log(iteracao)
+
+                iteracao = conversa.next() //
+                console.log(iteracao)
+
+                iteracao = conversa.next() //
+                console.log(iteracao)
+
+                iteracao = conversa.next() //
+                console.log(iteracao)
+
+            }
+
+        </script>
+
+        <div id="teste">
+            <button type="button" onclick="acao()">Avançar</button>
+        </div>
+</body>
+</html>
