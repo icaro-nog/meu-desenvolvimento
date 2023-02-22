@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <script>
+
+            // Requisições HTTP
+            let resposta = {}
+
+            let promessa = new Promise((resolve, reject) => {
+                try{
+
+                    //throw new Error("Opa, houve um erro!")
+
+                    setTimeout(() => {
+                        resposta = { dados: { msg: "Recuperamos os dados com sucesso!" } }
+                        resolve("Promessa concluída com sucesso!")
+                    }, 3000)
+                    
+
+                }catch(e){
+
+                    setTimeout(() => {
+                        reject(e)
+                    }, 3000)
+                }
+            })
+
+            console.log(promessa)
+
+            setTimeout(() => {
+
+                console.log(promessa)
+            }, 5000)
+
+        </script>
+</body>
+</html>
