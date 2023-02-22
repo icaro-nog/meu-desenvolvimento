@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <script>
+
+            let promessa = new Promise((resolve, reject) => {
+
+                // Requisição http para recuperar uma relação de usuário
+                setTimeout(() => {
+
+                    // Requisição foi realizada de algum modo
+                    let resposta_da_requisicao = {}
+
+                    // Erro na requisição
+                    if(true){
+
+                        resposta_da_requisicao = {
+                            codigo: 1050,
+                            erro: "Falha de autorização"
+                        }
+
+                        reject(resposta_da_requisicao)
+                    }
+
+                    resposta_da_requisicao = {
+                        0: {id: 1, nome: "João"},
+                        1: {id: 2, nome: "Maria"},
+                        2: {id: 3, nome: "José"},
+                    }
+
+                    resolve(resposta_da_requisicao)
+
+                }, 4000)
+
+            }).then(dados => {
+                console.log("Operação sequencial: ", dados)
+
+                return "Parâmetro 1 para o then 2"
+            }).then(param => {
+                console.log("Then número 2", param)
+            }).then(() => {
+                console.log("Then número 3")
+            }).then(() => {
+                console.log("Then número 4")
+
+            }).catch(erro => {
+                console.log("Operação sequencial (Catch): ", erro)
+
+                return "Parâmetro capturado no catch e enviado para o Then seguinte"
+            }).then(() => {
+                console.log("Then número 5")
+            }).then(() => {
+                console.log("Then número 6")
+            })           
+
+        </script>
+</body>
+</html>
