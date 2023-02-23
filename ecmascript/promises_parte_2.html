@@ -18,7 +18,7 @@
                     let resposta_da_requisicao = {}
 
                     // Erro na requisição
-                    if(true){
+                    if(false){
 
                         resposta_da_requisicao = {
                             codigo: 1050,
@@ -39,9 +39,52 @@
                 }, 4000)
 
             }).then(dados => {
-                console.log("Operação sequencial: ", dados)
+                console.log(dados)
+                
+                let promessa2 = new Promise((resolve, reject) => {
 
-                return "Parâmetro 1 para o then 2"
+                    // Requisição http para recuperar uma relação de posts dos usuários
+                    setTimeout(() => {
+
+                        // Requisição foi realizada de algum modo
+                        let resposta_da_requisicao = {}
+
+                        // Erro na requisição
+                        if(false){
+
+                            resposta_da_requisicao = {
+                                codigo: 7788,
+                                erro: "Erro ao recuperar os posts dos usuários"
+                            }
+
+                            reject(resposta_da_requisicao)
+                        }
+
+                        resposta_da_requisicao = {
+                            0: {id: 1, usuario_id: 1, posts: [
+                                {id: 1, post: "Post 1"},
+                                {id: 2, post: "Post 2"},
+                            ] },
+                            1: {id: 2, usuario_id: 2, posts: [
+                                {id: 3, post: "Post 1"},
+                                {id: 4, post: "Post 2"},
+                            ] },
+                            2: {id: 3, usuario_id: 3, posts: [
+                                {id: 5, post: "Post 1"},
+                                {id: 6, post: "Post 2"},
+                            ] },
+                        }
+
+                        resolve(resposta_da_requisicao)
+
+                    }, 4000)
+
+                }).then(dados => {
+                    console.log(dados)
+                }).catch(erro => {
+                    console.log(erro)
+                })
+
             }).then(param => {
                 console.log("Then número 2", param)
             }).then(() => {
@@ -49,12 +92,15 @@
             }).then(() => {
                 console.log("Then número 4")
 
+                return "Parâmetro capturado no catch e enviado para o Then seguinte"
+
             }).catch(erro => {
                 console.log("Operação sequencial (Catch): ", erro)
 
                 return "Parâmetro capturado no catch e enviado para o Then seguinte"
-            }).then(() => {
-                console.log("Then número 5")
+
+            }).then(param => { // param é o return "Parâmetro capturado.." de then 4 ou 5
+                console.log("Then número 5", param)
             }).then(() => {
                 console.log("Then número 6")
             })           
