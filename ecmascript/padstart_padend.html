@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // padStart (preenchimento a esquerda)
+        let codigo = "1000";
+
+        // Expectativa 0000001000
+        //codigo = codigo.padStart(<quantidade de caracteres>, <caractere que será repetido>)
+        codigo = codigo.padStart(20, "qwertyvkdjnd")
+        console.log(codigo)
+
+        console.log("-------------------")
+
+        // padEnd (preenchimento a direita)
+        let codigo2 = "8888"
+        // Expectativa "8888******"
+        codigo2 = codigo2.padEnd(10, "*")
+        console.log(codigo2)
+    </script>
+</body>
+</html>
