@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let processos = [1, 2, 3, 4, 5]
+
+        let iteracaoAssincrona = async () => {
+            for(let processo of processos){
+
+                // Processamentos assíncronos
+                await new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        
+                        console.log("Processamento assíncrono")
+                        resolve()
+                    }, 2000)
+                })
+
+                console.log(processo)
+            }
+        }
+
+        iteracaoAssincrona()
+    </script>
+</body>
+</html>
