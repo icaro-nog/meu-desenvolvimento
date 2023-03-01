@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <script>
+
+            class Carro {
+                constructor(marca, modelo, ano){
+                    this.marca = marca,
+                    this.modelo = modelo,
+                    this.ano = ano
+                }
+
+                // Para não retornar [object Object]
+                toString() {
+                    return `Carro da marca ${this.marca}, modelo ${this.modelo}, ano ${this.ano}`
+                }
+            }
+
+            
+
+            //[object Type]
+
+            let carro = new Carro("Jeep", "Renegade", 2021)
+
+            console.log(carro.toString())
+
+        </script>
+</body>
+</html>
