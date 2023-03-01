@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <body>
+        
+    </body>
+    <script>
+        
+        // Testando com o operador lógico OR
+        let teste1 = null || "Valor a direita"
+        let teste2 = 0 || "Valor a direita"
+        let teste3 = undefined || "Valor a direita"
+        let teste4 = "" || "Valor a direita"
+        let teste5 = "Valor a esquerda" || "Valor a direita"
+
+        console.log("teste1: ", teste1)
+        console.log("teste2: ", teste2)
+        console.log("teste3: ", teste3)
+        console.log("teste4: ", teste4)
+        console.log("teste5: ", teste5)
+
+        console.log("----------------------")
+
+        // Testando com Nullish coalescing (??) 
+        teste1 = null ?? "Valor a direita"
+        teste2 = 0 ?? "Valor a direita" // Utilizável
+        teste3 = undefined ?? "Valor a direita"
+        teste4 = "" ?? "Valor a direita" // Utilizável
+        teste5 = "Valor a esquerda" ?? "Valor a direita" // Utilizável
+
+        console.log("teste1: ", teste1)
+        console.log("teste2: ", teste2)
+        console.log("teste3: ", teste3)
+        console.log("teste4: ", teste4)
+        console.log("teste5: ", teste5)
+    </script>
+</html>
