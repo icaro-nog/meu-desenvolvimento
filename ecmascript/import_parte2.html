@@ -17,22 +17,22 @@
             // Carregando o módulo antes da necessidade de utilizá-lo
             // import { saudacao, getEnderecoByCEP } from "./import/lib.mjs"
 
-            document.querySelector("#btnSaudacao").addEventListener("click", () => {
+            document.querySelector("#btnSaudacao").addEventListener("click", async () => {
 
-                import ("./import/lib.mjs")
-                    .then( module => console.log(module.saudacao()) )// Acessando o modulo que foi carregado            
+                const modulo = await import ("./import/lib.mjs") // Promise
+                console.log(modulo.saudacao())// Acessando o modulo que foi carregado            
             })
 
-            document.querySelector("#btnCEP").addEventListener("click", () => {
+            document.querySelector("#btnCEP").addEventListener("click", async () => {
 
                 let cep = document.querySelector("#cep").value
 
                 if(cep.length == 8){
-                    import ("./import/lib2.mjs")
-                        .then(module => {
-                            module.getEnderecoByCEP("92330200")
-                                .then(dados => console.log(dados)) // Acessando o modulo que foi carregado
-                        })
+
+                    let x = await import ("./import/lib2.mjs") // Promise
+                    
+                    x.getEnderecoByCEP(cep)
+                    .then(dados => console.log(dados)) // Acessando o modulo que foi carregado
                 }
                 
             })            
