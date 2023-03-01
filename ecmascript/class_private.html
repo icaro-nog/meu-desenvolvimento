@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <body>
+        
+    </body>
+    <script>
+        
+        class Pessoa {
+
+            #humor = null
+
+            #mensagens = [
+                "Seja feliz",
+                "Não estou pra conversa meu chapa"
+            ]
+
+            constructor(nome) {
+                this.#mudarHumor()
+                this.nome = nome
+            }
+
+            dizerOi() {
+                return `Olá, meu nome é ${this.nome}`
+            }
+
+            getHumor() {
+                return this.#humor
+            }
+
+            // Método private
+            #mudarHumor(){
+                // 0 e 1
+                this.#humor = Math.floor(Math.random() * 2)
+            }
+
+            getMensagem() {
+                return this.#mensagens[this.#humor]
+            }
+        }
+
+        let p = new Pessoa("José")
+        console.log(p.dizerOi())
+
+        //--
+        console.log(p.nome)
+        // console.log(p.#humor) // Erro por não poder acessar atributo private
+        console.log(p.getMensagem())
+
+    </script>
+</html>
