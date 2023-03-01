@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <script>
+
+            let nomes = [
+                "João, José, Maria",
+                "Sandra, Paulo",
+                "Antônia, Fernanda, Marcos",
+            ]
+
+            console.log(nomes)
+
+            let nomesMap = nomes.map(item => {
+                // Transformando os arrays de nomes em novos arrays pela vírgula
+                return item.split(",")
+            })
+            console.log(nomesMap)
+
+            let nomesFlatMap = nomes.flatMap(item => {
+                // Transformando os arrays de nomes em novos arrays pela vírgula e colocando-os no mesmo nível
+                return item.split(",")
+            })
+            console.log(nomesFlatMap)
+
+        </script>
+</body>
+</html>
