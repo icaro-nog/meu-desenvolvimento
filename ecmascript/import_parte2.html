@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+        <button id="btnSaudacao">Saudação</button>
+        <hr>
+        <input type="text" id="cep" placeholder="CEP">
+        <button id="btnCEP">Consultar CEP</button>
+
+        <script type="module">
+            // Carregando o módulo antes da necessidade de utilizá-lo
+            // import { saudacao, getEnderecoByCEP } from "./import/lib.mjs"
+
+            document.querySelector("#btnSaudacao").addEventListener("click", () => {
+
+                import ("./import/lib.mjs")
+                    .then( module => console.log(module.saudacao()) )// Acessando o modulo que foi carregado            
+            })
+
+            document.querySelector("#btnCEP").addEventListener("click", () => {
+
+                let cep = document.querySelector("#cep").value
+
+                if(cep.length == 8){
+                    import ("./import/lib2.mjs")
+                        .then(module => {
+                            module.getEnderecoByCEP("92330200")
+                                .then(dados => console.log(dados)) // Acessando o modulo que foi carregado
+                        })
+                }
+                
+            })            
+
+        </script>
+</body>
+</html>
