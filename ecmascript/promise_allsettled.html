@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <body>
+        
+    </body>
+    <script>
+        
+        const promise1 = new Promise((resolve, reject) => {
+            return setTimeout(() => resolve("Promise 1 resolvida"), 2000)
+        })
+
+        const promise2 = new Promise((resolve, reject) => {
+            return setTimeout(() => reject("Promise 2 rejeitada"), 2000)
+        })
+
+        const promise3 = new Promise((resolve, reject) => {
+            return setTimeout(() => resolve("Promise 3 resolvida"), 2000)
+        })
+
+        const promises = [promise1, promise2, promise3]
+
+        Promise.allSettled(promises)
+            .then((resultados) => {
+                resultados.forEach((resultado) => {
+                    if(resultado.status == "fulfilled"){
+                        console.log(resultado.value)
+                    } else {
+                        console.log(resultado.reason)
+                    }
+                })
+            })
+
+    </script>
+</html>
