@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+    let v1 = 10
+    let v2 = null // se null ou undefined -> será atribuído o valor de Logical nullish assignment (??=)
+
+    // Logical nullish assignment (??=)
+    v1 ??= 50
+    v2 ??= 100
+
+    console.log(v1, v2)
+
+    // ---------------------------------
+
+    let carro = {
+        marca: "Volkswagen",
+        modelo: "Chevette"
+    }
+
+    carro.marca ??= "Chevrolet"
+    carro.modelo ??= "Celta" // Não é atribuído, pois o modelo já está definido no objeto
+    carro.ano ??= "2023"
+
+    console.log(carro)
+
+    // ---------------------------------
+
+    let arr = ["uva", "José", null, undefined, 5, []]
+
+    arr.forEach((item, indice) => {
+        arr[indice] ??= "<não informado>"
+    })
+
+    console.log(arr)
+</script>
+</html>
